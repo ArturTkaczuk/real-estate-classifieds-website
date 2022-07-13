@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Website (README TEMPLATE)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+One of my first projects. Simple game made in JS, CSS & HTML to learn coding. Check it [Live here](https://smash-the-insect.netlify.app/)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Support](#support)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Latest web browser to run app on website ([Google Chrome](https://www.google.com/intl/en_en/chrome/))
+- To run git commands you need [Git](https://git-scm.com/downloads) installed
+- To run npm commands you need [node](https://nodejs.org/en/download/) installed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+**a) Download project via git**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run commands in terminal:
 
-### `npm run build`
+```sh
+git clone project-name.github.com
+cd project-name
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**b) Download project manually from GitHub**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Download project from [this link](https://github.com/ArturTkaczuk/project-template/archive/refs/heads/main.zip)
+2. Run index.html to open app in browser
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+Useful commands - run in project's directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Dev server `npm run start`
+2. Production build `npm run build`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Technologies used during development process:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Vanilla JS
+- SCSS
+- HTML
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- timer
+- score counter
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Support
 
-### Code Splitting
+Please [open an issue](https://github.com/ArturTkaczuk/insect-game/issues) for support.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/ArturTkaczuk/insect-game/compare).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+> You can check out the full license [here](https://github.com/ArturTkaczuk/insect-game/blob/main/LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the terms of the **_MIT license_**.
