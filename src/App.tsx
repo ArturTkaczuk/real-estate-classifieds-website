@@ -1,23 +1,24 @@
-import "./App.css";
+import './App.css'
+import React from 'react'
 
 function submit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
+  e.preventDefault()
 }
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <form onSubmit={(e) => submit(e)}></form>
     </div>
-  );
+  )
 }
 
 type AppProps = {
-  prop: string;
-};
+  prop: string
+}
 
 export const Bpp = ({ prop }: AppProps): JSX.Element => {
-  return <div></div>;
-};
+  return <div></div>
+}
 
-export default App;
+export default App
