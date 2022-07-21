@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import styles from './Header.module.css'
 
 type HeaderProps = {
@@ -7,9 +5,5 @@ type HeaderProps = {
 }
 
 export const Header = (/*{ prop }: HeaderProps*/): JSX.Element => {
-  return (
-    <div className={styles.header}>
-      <h2>Header</h2>
-    </div>
-  )
+  return <div className={styles.header}></div>
 }

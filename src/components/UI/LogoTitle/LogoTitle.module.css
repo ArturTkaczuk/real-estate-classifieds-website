@@ -1,0 +1,9 @@
+.green {
+  color: green;
+}
+
+.greenUnderline {
+  text-decoration: underline;
+  text-decoration-color: green;
+  text-decoration-thickness: 4px;
+}
