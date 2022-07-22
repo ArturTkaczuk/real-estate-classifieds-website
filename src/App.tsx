@@ -1,6 +1,4 @@
-import { Estates } from './components/Estates/Estates'
 import { Header } from './components/Header/Header'
-import { Menu } from './components/Menu/Menu'
 
 function App() {
   return (

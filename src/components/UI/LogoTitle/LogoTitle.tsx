@@ -3,7 +3,7 @@ import styles from './LogoTitle.module.scss'
 
 export const LogoTitle = (): JSX.Element => {
   return (
-    <Typography variant='h4' component='h2'>
+    <Typography className={styles.logoTitle} variant='h4' component='h2'>
       <span className={styles.greenUnderline}>
         <span className={styles.green}>Home</span>Est
       </span>
