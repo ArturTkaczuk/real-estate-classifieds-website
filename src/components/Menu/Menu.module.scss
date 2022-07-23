@@ -1,0 +1,27 @@
+.menu {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+
+  background-image: url(../../assets/images/menu.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.textField {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 350px;
+  max-width: 80vw;
+
+  h1 {
+    padding: 20px;
+  }
+}
+
+.text {
+  @media (orientation: landscape) and (max-width: 1000px) {
+    font-size: 2rem;
+  }
+}
