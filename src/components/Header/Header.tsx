@@ -13,6 +13,7 @@ import { LogoTitle } from '../UI/LogoTitle/LogoTitle'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import styles from './Header.module.scss'
 import { Logout } from '@mui/icons-material'
+import logo from '../../assets/images/logo.png'
 
 // type HeaderProps = {
 //   prop: string
@@ -34,7 +35,7 @@ export const Header = (/*{ prop }: HeaderProps*/): JSX.Element => {
     <header className={styles.header}>
       <div className={styles.contentWrapper}>
         <Stack sx={{ gap: '25px' }} direction='row'>
-          <img className={styles.logo} src='../../images/logo.png' alt='logo' />
+          <img className={styles.logo} src={logo} alt='logo' />
           <LogoTitle />
         </Stack>
         <IconButton onClick={handleClick} sx={{ color: '#000' }} aria-label='settings'>
