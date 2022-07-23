@@ -1,5 +1,6 @@
 .menu {
-  position: relative;
+  display: flex;
+  justify-content: center;
   width: 100vw;
   height: 90vh;
 
@@ -8,20 +9,30 @@
   background-position: center;
 }
 
-.textField {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 350px;
-  max-width: 80vw;
+h1 {
+  padding: 20px;
+  font-weight: 400;
+  font-size: 3rem;
 
-  h1 {
-    padding: 20px;
+  @media (orientation: landscape) and (max-width: 1000px) {
+    font-size: 2rem;
   }
 }
 
-.text {
+.contentWrapper {
+  position: relative;
+  display: inline-block;
+  width: 1200px;
+}
+
+.textField {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  width: 350px;
+  max-width: 80vw;
+
   @media (orientation: landscape) and (max-width: 1000px) {
-    font-size: 2rem;
+    top: 30px;
   }
 }
