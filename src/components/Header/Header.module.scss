@@ -1,17 +1,25 @@
 .header {
   display: flex;
+  justify-content: center;
+  padding: 30px;
+
+  background-color: #f4f4f4;
+}
+
+.contentWrapper {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  padding: 30px;
-  background-color: #f4f4f4;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .logo {
   display: none;
   height: 50px;
   width: 82px;
+
   cursor: pointer;
 
   @media (min-width: 500px) {
