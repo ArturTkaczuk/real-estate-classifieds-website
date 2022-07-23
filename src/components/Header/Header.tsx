@@ -43,6 +43,8 @@ export const Header = (/*{ prop }: HeaderProps*/): JSX.Element => {
             <AccountCircleIcon sx={{ fontSize: '2.5rem' }} />
           </Tooltip>
         </IconButton>
+
+        {/* This MUI component is not visible, only after click on profile icon */}
         <Menu
           anchorEl={anchorEl}
           id='account-menu'
