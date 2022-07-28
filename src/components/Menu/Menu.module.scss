@@ -8,31 +8,3 @@
   background-size: cover;
   background-position: center;
 }
-
-h1 {
-  padding: 20px;
-  font-weight: 400;
-  font-size: 3rem;
-
-  @media (orientation: landscape) and (max-width: 1000px) {
-    font-size: 2rem;
-  }
-}
-
-.contentWrapper {
-  position: relative;
-  display: inline-block;
-  width: 1200px;
-}
-
-.textField {
-  position: absolute;
-  top: 50px;
-  left: 30px;
-  width: 350px;
-  max-width: 80vw;
-
-  @media (orientation: landscape) and (max-width: 1000px) {
-    top: 30px;
-  }
-}

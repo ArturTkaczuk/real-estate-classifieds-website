@@ -8,6 +8,8 @@ import {
   Stack,
   Tooltip,
   Menu,
+  Box,
+  Container,
 } from '@mui/material'
 import { LogoTitle } from '../UI/LogoTitle/LogoTitle'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
@@ -33,12 +35,24 @@ export const Header = (/*{ prop }: HeaderProps*/): JSX.Element => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.contentWrapper}>
-        <Stack sx={{ gap: '25px' }} direction='row'>
-          <img className={styles.logo} src={logo} alt='logo' />
-          <LogoTitle />
-        </Stack>
-        <IconButton onClick={handleClick} sx={{ color: '#000' }} aria-label='settings'>
+      <Container sx={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
+        <Box
+          component='img'
+          sx={{
+            display: { xs: 'none', sm: 'inline-block' },
+            height: '50px',
+            width: '82px',
+            cursor: 'pointer',
+          }}
+          src={logo}
+          alt='logo'
+        />
+        <LogoTitle />
+        <IconButton
+          onClick={handleClick}
+          sx={{ color: '#000', width: '43px', height: '43px', marginLeft: 'auto' }}
+          aria-label='settings'
+        >
           <Tooltip title='Account settings'>
             <AccountCircleIcon sx={{ fontSize: '2.5rem' }} />
           </Tooltip>
@@ -107,7 +121,7 @@ export const Header = (/*{ prop }: HeaderProps*/): JSX.Element => {
             </div>
           )}
         </Menu>
-      </div>
+      </Container>
     </header>
   )
 }

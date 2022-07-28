@@ -6,25 +6,3 @@
 
   background-color: #f4f4f4;
 }
-
-.contentWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 30px;
-  max-width: 1200px;
-}
-
-.logo {
-  display: none;
-  height: 50px;
-  width: 82px;
-
-  cursor: pointer;
-
-  @media (min-width: 500px) {
-    display: inline-block;
-  }
-}
