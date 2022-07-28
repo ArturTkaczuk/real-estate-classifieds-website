@@ -1,6 +1,6 @@
 import { Header } from './components/Header/Header'
 import { Menu } from './components/Menu/Menu'
-import './App.scss'
+import './App.css'
 
 function App() {
   return (

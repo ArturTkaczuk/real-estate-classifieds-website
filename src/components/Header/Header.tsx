@@ -5,7 +5,6 @@ import {
   IconButton,
   ListItemIcon,
   MenuItem,
-  Stack,
   Tooltip,
   Menu,
   Box,
@@ -13,7 +12,7 @@ import {
 } from '@mui/material'
 import { LogoTitle } from '../UI/LogoTitle/LogoTitle'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import styles from './Header.module.scss'
+import styles from './Header.module.css'
 import { Logout } from '@mui/icons-material'
 import logo from '../../assets/images/logo.png'
 

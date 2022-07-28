@@ -1,6 +1,6 @@
 import { Container, Paper } from '@mui/material'
 import { SearchFilter } from '../SearchFilter/SearchFilter'
-import styles from './Menu.module.scss'
+import styles from './Menu.module.css'
 
 export const Menu = (): JSX.Element => {
   return (

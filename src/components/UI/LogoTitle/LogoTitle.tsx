@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import styles from './LogoTitle.module.scss'
+import styles from './LogoTitle.module.css'
 
 export const LogoTitle = (): JSX.Element => {
   return (
