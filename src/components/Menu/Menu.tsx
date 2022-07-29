@@ -22,7 +22,6 @@ export const Menu = (): JSX.Element => {
             The best real estate classifieds platform in Poland
           </Typography>
         </PaperWrapper>
-        <SearchFilter />
       </Container>
     </div>
   )
