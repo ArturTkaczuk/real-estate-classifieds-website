@@ -39,6 +39,8 @@ export const SearchFilter = (): JSX.Element => {
           alignItems: 'center',
           gap: '10px',
           padding: '20px',
+          width: { md: '700px', lg: '100%' },
+          margin: '0 auto',
         }}
       >
         <Box sx={{ display: 'flex', gap: '10px', width: '100%' }}>
