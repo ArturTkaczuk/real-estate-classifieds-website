@@ -2,13 +2,18 @@ import {
   Box,
   Container,
   FormControl,
+  FormHelperText,
+  InputAdornment,
   InputLabel,
   MenuItem,
+  OutlinedInput,
   Paper,
   Select,
   SelectChangeEvent,
+  TextField,
+  Typography,
 } from '@mui/material'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 export const SearchFilter = (): JSX.Element => {
   const [filterData, setFilterData] = useState<{
@@ -21,7 +26,7 @@ export const SearchFilter = (): JSX.Element => {
   }>({})
 
   const handleChange = (
-    event: SelectChangeEvent<string | number>,
+    event: SelectChangeEvent<string | number> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     objectKey: 'propertyStatus' | 'rooms' | 'province' | 'city' | 'priceMin' | 'priceMax',
   ) => {
     setFilterData({ ...filterData, ...{ [objectKey]: event.target.value } })
@@ -29,9 +34,9 @@ export const SearchFilter = (): JSX.Element => {
 
   return (
     <Container>
-      <Paper sx={{ padding: '300px 50px' }}>
-        <Box sx={{ minWidth: '120px' }}>
-          <FormControl fullWidth>
+      <Paper sx={{ padding: '100px 50px' }}>
+        <Box>
+          <FormControl sx={{ width: '50%' }}>
             <InputLabel id='property-status-select-label'>Property status</InputLabel>
             <Select
               labelId='property-status-select-label'
@@ -40,15 +45,13 @@ export const SearchFilter = (): JSX.Element => {
               label='property-status'
               onChange={(event) => handleChange(event, 'propertyStatus')}
             >
-              <MenuItem value='both'>Both</MenuItem>
-              <MenuItem value='rentals'>Rentals</MenuItem>
-              <MenuItem value='sales'>Sales</MenuItem>
+              <MenuItem value='Both'>Both</MenuItem>
+              <MenuItem value='Rentals'>Rentals</MenuItem>
+              <MenuItem value='Sales'>Sales</MenuItem>
             </Select>
           </FormControl>
-        </Box>
 
-        <Box sx={{ minWidth: '120px' }}>
-          <FormControl fullWidth>
+          <FormControl sx={{ width: '50%' }}>
             <InputLabel id='rooms-select-label'>Rooms</InputLabel>
             <Select
               labelId='rooms-select-label'
@@ -68,22 +71,80 @@ export const SearchFilter = (): JSX.Element => {
           </FormControl>
         </Box>
 
-        {/* <Box sx={{ minWidth: '120px' }}>
-          <FormControl fullWidth>
-            <InputLabel id='property-status-select-label'>Property status</InputLabel>
-            <Select
-              labelId='property-status-select-label'
-              id='property-status-select'
-              value={filterData.propertyStatus || ''}
-              label='property-status'
-              onChange={(event) => handleChange(event, 'propertyStatus')}
-            >
-              <MenuItem value='both'>Both</MenuItem>
-              <MenuItem value='rentals'>Rentals</MenuItem>
-              <MenuItem value='sales'>Sales</MenuItem>
-            </Select>
-          </FormControl>
-        </Box> */}
+        <FormControl sx={{ width: '220px' }}>
+          <InputLabel id='province-select-label'>Province</InputLabel>
+          <Select
+            labelId='province-select-label'
+            id='province-select'
+            value={filterData.province || ''}
+            label='province'
+            onChange={(event) => handleChange(event, 'province')}
+          >
+            {[
+              'Lower Silesian',
+              'Kuyavian-Pomeranian',
+              'Lublin',
+              'Lubusz',
+              'Łódź',
+              'Lesser Poland',
+              'Masovian',
+              'Opole',
+              'Subcarpathian',
+              'Podlaskie',
+              'Pomeranian',
+              'Silesian',
+              'Holy Cross',
+              'Warmian-Masurian',
+              'Greater Poland',
+              'West Pomeranian',
+            ].map((province, idx) => {
+              return (
+                <MenuItem key={idx} value={province}>
+                  {province}
+                </MenuItem>
+              )
+            })}
+          </Select>
+        </FormControl>
+
+        <TextField
+          sx={{ minWidth: '220px' }}
+          id='city'
+          label='City'
+          variant='outlined'
+          value={filterData.city || ''}
+          onChange={(event) => handleChange(event, 'city')}
+        />
+
+        {/* Prevent text input in TextFields below
+https://bobbyhadz.com/blog/react-only-number-input
+        */}
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <TextField
+            sx={{ minWidth: '220px' }}
+            id='priceMin'
+            label='Min price (PLN)'
+            variant='outlined'
+            value={filterData.priceMin || ''}
+            onChange={(event) => handleChange(event, 'priceMin')}
+            inputProps={{
+              type: 'number',
+            }}
+          />
+          <Typography sx={{ fontSize: '2.5rem' }}>-</Typography>
+          <TextField
+            sx={{ minWidth: '220px' }}
+            id='priceMax'
+            label='Max price (PLN)'
+            variant='outlined'
+            value={filterData.priceMax || ''}
+            onChange={(event) => handleChange(event, 'priceMax')}
+            inputProps={{
+              type: 'number',
+            }}
+          />
+        </Box>
 
         <p>{JSON.stringify(filterData)}</p>
       </Paper>
