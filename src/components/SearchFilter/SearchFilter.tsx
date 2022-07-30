@@ -1,12 +1,10 @@
 import {
   Box,
+  Button,
   Container,
   FormControl,
-  FormHelperText,
-  InputAdornment,
   InputLabel,
   MenuItem,
-  OutlinedInput,
   Paper,
   Select,
   SelectChangeEvent,
@@ -17,7 +15,7 @@ import { ChangeEvent, useState } from 'react'
 
 export const SearchFilter = (): JSX.Element => {
   const [filterData, setFilterData] = useState<{
-    propertyStatus?: string
+    type?: string
     rooms?: number
     province?: string
     city?: string
@@ -27,23 +25,31 @@ export const SearchFilter = (): JSX.Element => {
 
   const handleChange = (
     event: SelectChangeEvent<string | number> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    objectKey: 'propertyStatus' | 'rooms' | 'province' | 'city' | 'priceMin' | 'priceMax',
+    objectKey: 'type' | 'rooms' | 'province' | 'city' | 'priceMin' | 'priceMax',
   ) => {
     setFilterData({ ...filterData, ...{ [objectKey]: event.target.value } })
   }
 
   return (
     <Container>
-      <Paper sx={{ padding: '100px 50px' }}>
-        <Box>
-          <FormControl sx={{ width: '50%' }}>
-            <InputLabel id='property-status-select-label'>Property status</InputLabel>
+      <Paper
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', lg: 'row' },
+          alignItems: 'center',
+          gap: '10px',
+          padding: '20px',
+        }}
+      >
+        <Box sx={{ display: 'flex', gap: '10px', width: '100%' }}>
+          <FormControl sx={{ width: '50%', minWidth: '120px' }}>
+            <InputLabel id='type-select-label'>Type</InputLabel>
             <Select
-              labelId='property-status-select-label'
-              id='property-status-select'
-              value={filterData.propertyStatus || ''}
-              label='property-status'
-              onChange={(event) => handleChange(event, 'propertyStatus')}
+              labelId='type-select-label'
+              id='type-select'
+              value={filterData.type || ''}
+              label='type'
+              onChange={(event) => handleChange(event, 'type')}
             >
               <MenuItem value='Both'>Both</MenuItem>
               <MenuItem value='Rentals'>Rentals</MenuItem>
@@ -71,7 +77,7 @@ export const SearchFilter = (): JSX.Element => {
           </FormControl>
         </Box>
 
-        <FormControl sx={{ width: '220px' }}>
+        <FormControl sx={{ minWidth: { xs: '100%', lg: '200px' } }}>
           <InputLabel id='province-select-label'>Province</InputLabel>
           <Select
             labelId='province-select-label'
@@ -108,7 +114,7 @@ export const SearchFilter = (): JSX.Element => {
         </FormControl>
 
         <TextField
-          sx={{ minWidth: '220px' }}
+          sx={{ width: '100%' }}
           id='city'
           label='City'
           variant='outlined'
@@ -120,9 +126,16 @@ export const SearchFilter = (): JSX.Element => {
 https://bobbyhadz.com/blog/react-only-number-input
         */}
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2px',
+            minWidth: { xs: '100%', lg: '300px' },
+          }}
+        >
           <TextField
-            sx={{ minWidth: '220px' }}
+            sx={{ width: '50%' }}
             id='priceMin'
             label='Min price (PLN)'
             variant='outlined'
@@ -132,9 +145,9 @@ https://bobbyhadz.com/blog/react-only-number-input
               type: 'number',
             }}
           />
-          <Typography sx={{ fontSize: '2.5rem' }}>-</Typography>
+          <Typography sx={{ fontSize: '2rem' }}>-</Typography>
           <TextField
-            sx={{ minWidth: '220px' }}
+            sx={{ width: '50%' }}
             id='priceMax'
             label='Max price (PLN)'
             variant='outlined'
@@ -146,7 +159,16 @@ https://bobbyhadz.com/blog/react-only-number-input
           />
         </Box>
 
-        <p>{JSON.stringify(filterData)}</p>
+        <Button
+          color='success'
+          sx={{ minWidth: { xs: '100%', lg: '100px' }, height: '56px' }}
+          size='large'
+          variant='contained'
+        >
+          Search
+        </Button>
+
+        {/* <p>{JSON.stringify(filterData)}</p> */}
       </Paper>
     </Container>
   )
