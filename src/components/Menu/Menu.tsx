@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles'
 import { Container, Paper, Typography, experimental_sx as sx } from '@mui/material'
 
-import { SearchFilter } from '../SearchFilter/SearchFilter'
 import styles from './Menu.module.css'
 
 const PaperWrapper = styled(Paper)(
