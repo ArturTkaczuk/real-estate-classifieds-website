@@ -31,7 +31,7 @@ export const SearchFilter = (): JSX.Element => {
   }
 
   return (
-    <Container>
+    <Container sx={{ marginBottom: '100px' }}>
       <Paper
         sx={{
           display: 'flex',
@@ -53,9 +53,9 @@ export const SearchFilter = (): JSX.Element => {
               label='type'
               onChange={(event) => handleChange(event, 'type')}
             >
-              <MenuItem value='Both'>Both</MenuItem>
-              <MenuItem value='Rentals'>Rentals</MenuItem>
-              <MenuItem value='Sales'>Sales</MenuItem>
+              <MenuItem value='both'>Both</MenuItem>
+              <MenuItem value='rental'>Rentals</MenuItem>
+              <MenuItem value='sale'>Sales</MenuItem>
             </Select>
           </FormControl>
 
