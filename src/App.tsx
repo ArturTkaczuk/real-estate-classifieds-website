@@ -6,6 +6,7 @@ import { Estates } from './components/Estates/Estates'
 import offerOne from './assets/images/offer1.jpg'
 import offerTwo from './assets/images/offer2.jpg'
 import offerThree from './assets/images/offer3.jpg'
+import { Footer } from './components/Footer/Footer'
 
 const offers = [
   {
@@ -54,8 +55,7 @@ function App() {
       <HeadingPaper />
       <SearchFilter />
       <Estates offers={offers} />
-
-      <div style={{ height: '100vh' }} />
+      <Footer />
     </div>
   )
 }
