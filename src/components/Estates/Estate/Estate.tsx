@@ -2,16 +2,9 @@ import { Box, Paper, Typography } from '@mui/material'
 import { EstateProps } from '../../../types'
 import styles from './Estate.module.css'
 
-export const Estate = ({
-  imgLink,
-  offerTitle,
-  city,
-  province,
-  price,
-  squareMeters,
-  type,
-  rooms,
-}: EstateProps): JSX.Element => {
+export const Estate = (props: EstateProps): JSX.Element => {
+  const { imgLink, offerTitle, city, province, price, squareMeters, type, rooms } = props
+
   function numberWithSpaces(x: number) {
     return Math.round(x)
       .toString()
