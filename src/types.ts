@@ -7,4 +7,5 @@ export interface EstateProps {
   squareMeters: number
   type: string
   rooms: number
+  description: string
 }
