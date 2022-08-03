@@ -7,7 +7,9 @@ export function filterObjectArrayWithObject(objectArrayToFilter, filterObjectSet
     if (key == 'priceMin') {
       filteredObjects = filteredObjects.filter((object) => object.price >= value)
     } else if (key == 'priceMax') {
-      filteredObjects = filteredObjects.filter((object) => object.price <= value)
+      filteredObjects = filteredObjects.filter(
+        (object) => object.price <= (value === '' ? Infinity : value),
+      )
     }
 
     //single value filter
