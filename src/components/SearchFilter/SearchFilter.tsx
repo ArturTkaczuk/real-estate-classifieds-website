@@ -12,22 +12,20 @@ import {
   Typography,
 } from '@mui/material'
 import { ChangeEvent, useState } from 'react'
+import { FilterSettings } from '../../types'
 
-export const SearchFilter = (): JSX.Element => {
-  const [filterData, setFilterData] = useState<{
-    type?: string
-    rooms?: number
-    province?: string
-    city?: string
-    priceMin?: number
-    priceMax?: number
-  }>({})
+interface SearchFilterProps {
+  searchHandler: (filterSettings: FilterSettings) => void
+}
+
+export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element => {
+  const [filterSettings, setFilterSettings] = useState<FilterSettings>({})
 
   const handleChange = (
     event: SelectChangeEvent<string | number> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     objectKey: 'type' | 'rooms' | 'province' | 'city' | 'priceMin' | 'priceMax',
   ) => {
-    setFilterData({ ...filterData, ...{ [objectKey]: event.target.value } })
+    setFilterSettings({ ...filterSettings, ...{ [objectKey]: event.target.value } })
   }
 
   return (
@@ -49,11 +47,10 @@ export const SearchFilter = (): JSX.Element => {
             <Select
               labelId='type-select-label'
               id='type-select'
-              value={filterData.type || ''}
+              value={filterSettings.type || ''}
               label='type'
               onChange={(event) => handleChange(event, 'type')}
             >
-              <MenuItem value='both'>Both</MenuItem>
               <MenuItem value='rental'>Rentals</MenuItem>
               <MenuItem value='sale'>Sales</MenuItem>
             </Select>
@@ -64,7 +61,7 @@ export const SearchFilter = (): JSX.Element => {
             <Select
               labelId='rooms-select-label'
               id='rooms-select'
-              value={filterData.rooms || ''}
+              value={filterSettings.rooms || ''}
               label='rooms'
               onChange={(event) => handleChange(event, 'rooms')}
             >
@@ -84,7 +81,7 @@ export const SearchFilter = (): JSX.Element => {
           <Select
             labelId='province-select-label'
             id='province-select'
-            value={filterData.province || ''}
+            value={filterSettings.province || ''}
             label='province'
             onChange={(event) => handleChange(event, 'province')}
           >
@@ -120,7 +117,7 @@ export const SearchFilter = (): JSX.Element => {
           id='city'
           label='City'
           variant='outlined'
-          value={filterData.city || ''}
+          value={filterSettings.city || ''}
           onChange={(event) => handleChange(event, 'city')}
         />
 
@@ -141,7 +138,7 @@ https://bobbyhadz.com/blog/react-only-number-input
             id='priceMin'
             label='Min price (PLN)'
             variant='outlined'
-            value={filterData.priceMin || ''}
+            value={filterSettings.priceMin || ''}
             onChange={(event) => handleChange(event, 'priceMin')}
             inputProps={{
               type: 'number',
@@ -153,7 +150,7 @@ https://bobbyhadz.com/blog/react-only-number-input
             id='priceMax'
             label='Max price (PLN)'
             variant='outlined'
-            value={filterData.priceMax || ''}
+            value={filterSettings.priceMax || ''}
             onChange={(event) => handleChange(event, 'priceMax')}
             inputProps={{
               type: 'number',
@@ -166,6 +163,7 @@ https://bobbyhadz.com/blog/react-only-number-input
           sx={{ minWidth: { xs: '100%', lg: '100px' }, height: '56px' }}
           size='large'
           variant='contained'
+          onClick={() => searchHandler(filterSettings)}
         >
           Search
         </Button>

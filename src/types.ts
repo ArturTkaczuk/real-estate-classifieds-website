@@ -9,3 +9,12 @@ export interface EstateProps {
   rooms: number
   description: string
 }
+
+export interface FilterSettings {
+  type?: string
+  rooms?: number
+  province?: string
+  city?: string
+  priceMin?: number
+  priceMax?: number
+}

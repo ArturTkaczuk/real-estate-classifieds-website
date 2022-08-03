@@ -7,8 +7,11 @@ import offerOne from './assets/images/offer1.jpg'
 import offerTwo from './assets/images/offer2.jpg'
 import offerThree from './assets/images/offer3.jpg'
 import { Footer } from './components/Footer/Footer'
+import { useState } from 'react'
+import { EstateProps, FilterSettings } from './types'
+import { filterObjectArrayWithObject } from './utils/filterFunction'
 
-const offers = [
+const offersFromBackend = [
   {
     imgLink: offerOne,
     offerTitle: 'Modern apartment, high standard',
@@ -48,13 +51,20 @@ const offers = [
 ]
 
 function App() {
+  const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>(offersFromBackend)
+
+  const searchHandler = (filterSettings: FilterSettings) => {
+    const filteredOffers = filterObjectArrayWithObject(offersFromBackend, filterSettings)
+    setDisplayedOffers(filteredOffers)
+  }
+
   return (
     <div>
       <div className={styles.bgImage} />
       <Header />
       <HeadingPaper />
-      <SearchFilter />
-      <Estates offers={offers} />
+      <SearchFilter searchHandler={searchHandler} />
+      <Estates offers={displayedOffers} />
       <Footer />
     </div>
   )

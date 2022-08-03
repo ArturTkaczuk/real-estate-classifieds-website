@@ -7,7 +7,6 @@ interface EstatesProps {
 }
 
 export const Estates = ({ offers }: EstatesProps): JSX.Element => {
-  console.log(offers)
   return (
     <Container>
       <Paper sx={{ marginBottom: '10px' }}>
