@@ -17,4 +17,6 @@ export interface FilterSettings {
   city?: string
   priceMin?: number
   priceMax?: number
+  spaceMin?: number
+  spaceMax?: number
 }

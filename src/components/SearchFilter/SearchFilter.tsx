@@ -23,7 +23,15 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
 
   const handleChange = (
     event: SelectChangeEvent<string | number> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    objectKey: 'type' | 'rooms' | 'province' | 'city' | 'priceMin' | 'priceMax',
+    objectKey:
+      | 'type'
+      | 'rooms'
+      | 'province'
+      | 'city'
+      | 'priceMin'
+      | 'priceMax'
+      | 'spaceMin'
+      | 'spaceMax',
   ) => {
     setFilterSettings({ ...filterSettings, ...{ [objectKey]: event.target.value } })
   }
@@ -161,6 +169,39 @@ https://bobbyhadz.com/blog/react-only-number-input
           />
         </Box>
 
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2px',
+            minWidth: { xs: '100%', lg: '300px' },
+          }}
+        >
+          <TextField
+            sx={{ width: '50%' }}
+            id='spaceMin'
+            label='Min space (&#13217;)'
+            variant='outlined'
+            value={filterSettings.spaceMin || ''}
+            onChange={(event) => handleChange(event, 'spaceMin')}
+            inputProps={{
+              type: 'number',
+            }}
+          />
+          <Typography sx={{ fontSize: '2rem' }}>-</Typography>
+          <TextField
+            sx={{ width: '50%' }}
+            id='spaceMax'
+            label='Max space (&#13217;)'
+            variant='outlined'
+            value={filterSettings.spaceMax || ''}
+            onChange={(event) => handleChange(event, 'spaceMax')}
+            inputProps={{
+              type: 'number',
+            }}
+          />
+        </Box>
+
         <Button
           color='success'
           sx={{ minWidth: { xs: '100%', lg: '100px' }, height: '56px' }}
@@ -171,7 +212,7 @@ https://bobbyhadz.com/blog/react-only-number-input
           Search
         </Button>
 
-        {/* <p>{JSON.stringify(filterData)}</p> */}
+        {/* <p>{JSON.stringify(filterSettings)}</p> */}
       </Paper>
     </Container>
   )

@@ -12,6 +12,15 @@ export function filterObjectArrayWithObject(objectArrayToFilter, filterObjectSet
       )
     }
 
+    // space range filters
+    else if (key == 'spaceMin') {
+      filteredObjects = filteredObjects.filter((object) => object.squareMeters >= value)
+    } else if (key == 'spaceMax') {
+      filteredObjects = filteredObjects.filter(
+        (object) => object.squareMeters <= (value === '' ? Infinity : value),
+      )
+    }
+
     //single value filter
     else {
       filteredObjects = filteredObjects.filter((object) => String(object[key]).includes(value))
