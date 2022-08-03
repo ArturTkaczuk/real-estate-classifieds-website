@@ -51,6 +51,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
               label='type'
               onChange={(event) => handleChange(event, 'type')}
             >
+              <MenuItem value=''>Both</MenuItem>
               <MenuItem value='rental'>Rentals</MenuItem>
               <MenuItem value='sale'>Sales</MenuItem>
             </Select>
@@ -65,6 +66,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
               label='rooms'
               onChange={(event) => handleChange(event, 'rooms')}
             >
+              <MenuItem value=''>All</MenuItem>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((room) => {
                 return (
                   <MenuItem key={room} value={room}>
@@ -85,6 +87,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
             label='province'
             onChange={(event) => handleChange(event, 'province')}
           >
+            <MenuItem value=''>All</MenuItem>
             {[
               'Lower Silesian',
               'Kuyavian-Pomeranian',
