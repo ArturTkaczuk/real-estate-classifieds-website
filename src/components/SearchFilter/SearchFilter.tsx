@@ -1,4 +1,4 @@
-import { Box, Button, Container, Paper, TextField, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material'
 import { useState } from 'react'
 import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
 import {
@@ -28,88 +28,78 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
 
   return (
     <Container sx={{ marginBottom: '100px' }}>
-      <Paper
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', lg: 'row' },
-          alignItems: 'center',
-          gap: '10px',
-          padding: '20px',
-          width: { md: '700px', lg: '100%' },
-          margin: '0 auto',
-        }}
-      >
-        <Box sx={{ display: 'flex', gap: '10px', width: '100%' }}>
-          <TypeInput
-            handleFilterSettingsChange={handleFilterSettingsChange}
-            filterSettings={filterSettings}
-          />
-          <RoomsInput
-            handleFilterSettingsChange={handleFilterSettingsChange}
-            filterSettings={filterSettings}
-          />
-        </Box>
+      <Paper sx={{ padding: '0 20px 20px 20px' }}>
+        <Grid container spacing={2}>
+          <Grid item xs={6} lg={2}>
+            <TypeInput
+              handleFilterSettingsChange={handleFilterSettingsChange}
+              filterSettings={filterSettings}
+            />
+          </Grid>
+          <Grid item xs={6} lg={2}>
+            <RoomsInput
+              handleFilterSettingsChange={handleFilterSettingsChange}
+              filterSettings={filterSettings}
+            />
+          </Grid>
 
-        <ProvinceInput
-          handleFilterSettingsChange={handleFilterSettingsChange}
-          filterSettings={filterSettings}
-        />
+          <Grid item xs={12} sm={6} lg={4}>
+            <ProvinceInput
+              handleFilterSettingsChange={handleFilterSettingsChange}
+              filterSettings={filterSettings}
+            />
+          </Grid>
 
-        <CityInput
-          handleFilterSettingsChange={handleFilterSettingsChange}
-          filterSettings={filterSettings}
-        />
+          <Grid item xs={12} sm={6} lg={4}>
+            <CityInput
+              handleFilterSettingsChange={handleFilterSettingsChange}
+              filterSettings={filterSettings}
+            />
+          </Grid>
 
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '2px',
-            minWidth: { xs: '100%', lg: '300px' },
-          }}
-        >
-          <PriceMinInput
-            handleFilterSettingsChange={handleFilterSettingsChange}
-            filterSettings={filterSettings}
-          />
-          <Typography sx={{ fontSize: '2rem' }}>-</Typography>
+          <Grid item xs={12} lg={4}>
+            <Box sx={{ display: 'flex' }}>
+              <PriceMinInput
+                handleFilterSettingsChange={handleFilterSettingsChange}
+                filterSettings={filterSettings}
+              />
+              <Typography sx={{ fontSize: '2rem', margin: '0 3.5px' }}>-</Typography>
 
-          <PriceMaxInput
-            handleFilterSettingsChange={handleFilterSettingsChange}
-            filterSettings={filterSettings}
-          />
-        </Box>
+              <PriceMaxInput
+                handleFilterSettingsChange={handleFilterSettingsChange}
+                filterSettings={filterSettings}
+              />
+            </Box>
+          </Grid>
 
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '2px',
-            minWidth: { xs: '100%', lg: '300px' },
-          }}
-        >
-          <SpaceMinInput
-            handleFilterSettingsChange={handleFilterSettingsChange}
-            filterSettings={filterSettings}
-          />
-          <Typography sx={{ fontSize: '2rem' }}>-</Typography>
-          <SpaceMaxInput
-            handleFilterSettingsChange={handleFilterSettingsChange}
-            filterSettings={filterSettings}
-          />
-        </Box>
+          <Grid item xs={12} lg={4}>
+            <Box sx={{ display: 'flex' }}>
+              <SpaceMinInput
+                handleFilterSettingsChange={handleFilterSettingsChange}
+                filterSettings={filterSettings}
+              />
+              <Typography sx={{ fontSize: '2rem', margin: '0 3.5px' }}>-</Typography>
+              <SpaceMaxInput
+                handleFilterSettingsChange={handleFilterSettingsChange}
+                filterSettings={filterSettings}
+              />
+            </Box>
+          </Grid>
 
-        <Button
-          color='success'
-          sx={{ minWidth: { xs: '100%', lg: '100px' }, height: '56px' }}
-          size='large'
-          variant='contained'
-          onClick={() => searchHandler(filterSettings)}
-        >
-          Search
-        </Button>
+          <Grid item xs={12} lg={4}>
+            <Button
+              sx={{ width: '100%', height: '56px' }}
+              color='success'
+              size='large'
+              variant='contained'
+              onClick={() => searchHandler(filterSettings)}
+            >
+              Search
+            </Button>
+          </Grid>
 
-        {/* <p>{JSON.stringify(filterSettings)}</p> */}
+          {/* <p>{JSON.stringify(filterSettings)}</p> */}
+        </Grid>
       </Paper>
     </Container>
   )

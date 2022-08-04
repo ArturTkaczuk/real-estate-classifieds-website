@@ -22,7 +22,7 @@ export const TypeInput = ({
   handleFilterSettingsChange,
 }: TypeSelectProps): JSX.Element => {
   return (
-    <FormControl sx={{ width: '50%', minWidth: '120px' }}>
+    <FormControl sx={{ width: '100%' }}>
       <InputLabel id='type-select-label'>Type</InputLabel>
       <Select
         labelId='type-select-label'
@@ -44,7 +44,7 @@ export const RoomsInput = ({
   handleFilterSettingsChange,
 }: TypeSelectProps): JSX.Element => {
   return (
-    <FormControl sx={{ width: '50%' }}>
+    <FormControl sx={{ width: '100%' }}>
       <InputLabel id='rooms-select-label'>Rooms</InputLabel>
       <Select
         labelId='rooms-select-label'
@@ -71,7 +71,7 @@ export const ProvinceInput = ({
   handleFilterSettingsChange,
 }: TypeSelectProps): JSX.Element => {
   return (
-    <FormControl sx={{ minWidth: { xs: '100%', lg: '200px' } }}>
+    <FormControl sx={{ width: '100%' }}>
       <InputLabel id='province-select-label'>Province</InputLabel>
       <Select
         labelId='province-select-label'
