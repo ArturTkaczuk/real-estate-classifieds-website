@@ -1,18 +1,16 @@
+import { Box, Button, Container, Paper, TextField, Typography } from '@mui/material'
+import { useState } from 'react'
+import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
 import {
-  Box,
-  Button,
-  Container,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  SelectChangeEvent,
-  TextField,
-  Typography,
-} from '@mui/material'
-import { ChangeEvent, useState } from 'react'
-import { FilterSettings } from '../../types'
+  CityInput,
+  PriceMaxInput,
+  PriceMinInput,
+  ProvinceInput,
+  RoomsInput,
+  SpaceMaxInput,
+  SpaceMinInput,
+  TypeInput,
+} from './InputElements/InputElements'
 
 interface SearchFilterProps {
   searchHandler: (filterSettings: FilterSettings) => void
@@ -21,19 +19,11 @@ interface SearchFilterProps {
 export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element => {
   const [filterSettings, setFilterSettings] = useState<FilterSettings>({})
 
-  const handleChange = (
-    event: SelectChangeEvent<string | number> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    objectKey:
-      | 'type'
-      | 'rooms'
-      | 'province'
-      | 'city'
-      | 'priceMin'
-      | 'priceMax'
-      | 'spaceMin'
-      | 'spaceMax',
+  const handleFilterSettingsChange = (
+    event: FilterInputChangeEvent,
+    filterObjectKey: FilterObjectKeysAsString,
   ) => {
-    setFilterSettings({ ...filterSettings, ...{ [objectKey]: event.target.value } })
+    setFilterSettings({ ...filterSettings, ...{ [filterObjectKey]: event.target.value } })
   }
 
   return (
@@ -50,91 +40,25 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
         }}
       >
         <Box sx={{ display: 'flex', gap: '10px', width: '100%' }}>
-          <FormControl sx={{ width: '50%', minWidth: '120px' }}>
-            <InputLabel id='type-select-label'>Type</InputLabel>
-            <Select
-              labelId='type-select-label'
-              id='type-select'
-              value={filterSettings.type || ''}
-              label='type'
-              onChange={(event) => handleChange(event, 'type')}
-            >
-              <MenuItem value=''>Both</MenuItem>
-              <MenuItem value='rental'>Rentals</MenuItem>
-              <MenuItem value='sale'>Sales</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl sx={{ width: '50%' }}>
-            <InputLabel id='rooms-select-label'>Rooms</InputLabel>
-            <Select
-              labelId='rooms-select-label'
-              id='rooms-select'
-              value={filterSettings.rooms || ''}
-              label='rooms'
-              onChange={(event) => handleChange(event, 'rooms')}
-            >
-              <MenuItem value=''>All</MenuItem>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((room) => {
-                return (
-                  <MenuItem key={room} value={room}>
-                    {room}
-                  </MenuItem>
-                )
-              })}
-            </Select>
-          </FormControl>
+          <TypeInput
+            handleFilterSettingsChange={handleFilterSettingsChange}
+            filterSettings={filterSettings}
+          />
+          <RoomsInput
+            handleFilterSettingsChange={handleFilterSettingsChange}
+            filterSettings={filterSettings}
+          />
         </Box>
 
-        <FormControl sx={{ minWidth: { xs: '100%', lg: '200px' } }}>
-          <InputLabel id='province-select-label'>Province</InputLabel>
-          <Select
-            labelId='province-select-label'
-            id='province-select'
-            value={filterSettings.province || ''}
-            label='province'
-            onChange={(event) => handleChange(event, 'province')}
-          >
-            <MenuItem value=''>All</MenuItem>
-            {[
-              'Lower Silesian',
-              'Kuyavian-Pomeranian',
-              'Lublin',
-              'Lubusz',
-              'Łódź',
-              'Lesser Poland',
-              'Masovian',
-              'Opole',
-              'Subcarpathian',
-              'Podlaskie',
-              'Pomeranian',
-              'Silesian',
-              'Holy Cross',
-              'Warmian-Masurian',
-              'Greater Poland',
-              'West Pomeranian',
-            ].map((province, idx) => {
-              return (
-                <MenuItem key={idx} value={province}>
-                  {province}
-                </MenuItem>
-              )
-            })}
-          </Select>
-        </FormControl>
-
-        <TextField
-          sx={{ width: '100%' }}
-          id='city'
-          label='City'
-          variant='outlined'
-          value={filterSettings.city || ''}
-          onChange={(event) => handleChange(event, 'city')}
+        <ProvinceInput
+          handleFilterSettingsChange={handleFilterSettingsChange}
+          filterSettings={filterSettings}
         />
 
-        {/* Prevent text input in TextFields below
-https://bobbyhadz.com/blog/react-only-number-input
-        */}
+        <CityInput
+          handleFilterSettingsChange={handleFilterSettingsChange}
+          filterSettings={filterSettings}
+        />
 
         <Box
           sx={{
@@ -144,28 +68,15 @@ https://bobbyhadz.com/blog/react-only-number-input
             minWidth: { xs: '100%', lg: '300px' },
           }}
         >
-          <TextField
-            sx={{ width: '50%' }}
-            id='priceMin'
-            label='Min price (PLN)'
-            variant='outlined'
-            value={filterSettings.priceMin || ''}
-            onChange={(event) => handleChange(event, 'priceMin')}
-            inputProps={{
-              type: 'number',
-            }}
+          <PriceMinInput
+            handleFilterSettingsChange={handleFilterSettingsChange}
+            filterSettings={filterSettings}
           />
           <Typography sx={{ fontSize: '2rem' }}>-</Typography>
-          <TextField
-            sx={{ width: '50%' }}
-            id='priceMax'
-            label='Max price (PLN)'
-            variant='outlined'
-            value={filterSettings.priceMax || ''}
-            onChange={(event) => handleChange(event, 'priceMax')}
-            inputProps={{
-              type: 'number',
-            }}
+
+          <PriceMaxInput
+            handleFilterSettingsChange={handleFilterSettingsChange}
+            filterSettings={filterSettings}
           />
         </Box>
 
@@ -177,28 +88,14 @@ https://bobbyhadz.com/blog/react-only-number-input
             minWidth: { xs: '100%', lg: '300px' },
           }}
         >
-          <TextField
-            sx={{ width: '50%' }}
-            id='spaceMin'
-            label='Min space (&#13217;)'
-            variant='outlined'
-            value={filterSettings.spaceMin || ''}
-            onChange={(event) => handleChange(event, 'spaceMin')}
-            inputProps={{
-              type: 'number',
-            }}
+          <SpaceMinInput
+            handleFilterSettingsChange={handleFilterSettingsChange}
+            filterSettings={filterSettings}
           />
           <Typography sx={{ fontSize: '2rem' }}>-</Typography>
-          <TextField
-            sx={{ width: '50%' }}
-            id='spaceMax'
-            label='Max space (&#13217;)'
-            variant='outlined'
-            value={filterSettings.spaceMax || ''}
-            onChange={(event) => handleChange(event, 'spaceMax')}
-            inputProps={{
-              type: 'number',
-            }}
+          <SpaceMaxInput
+            handleFilterSettingsChange={handleFilterSettingsChange}
+            filterSettings={filterSettings}
           />
         </Box>
 

@@ -1,3 +1,6 @@
+import { SelectChangeEvent } from '@mui/material'
+import { ChangeEvent } from 'react'
+
 export interface EstateProps {
   imgLink: string
   offerTitle: string
@@ -20,3 +23,17 @@ export interface FilterSettings {
   spaceMin?: number
   spaceMax?: number
 }
+
+export type FilterInputChangeEvent =
+  | SelectChangeEvent<string | number>
+  | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+
+export type FilterObjectKeysAsString =
+  | 'type'
+  | 'rooms'
+  | 'province'
+  | 'city'
+  | 'priceMin'
+  | 'priceMax'
+  | 'spaceMin'
+  | 'spaceMax'
