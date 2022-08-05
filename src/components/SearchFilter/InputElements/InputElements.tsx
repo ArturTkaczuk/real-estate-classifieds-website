@@ -1,19 +1,11 @@
 import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
-import { FilterInputChangeEvent, FilterSettings } from '../../../types'
+import { FilterInputChangeEvent, FilterObjectKeysAsString, FilterSettings } from '../../../types'
 
 type TypeSelectProps = {
   filterSettings: FilterSettings
   handleFilterSettingsChange: (
     event: FilterInputChangeEvent,
-    objectKey:
-      | 'type'
-      | 'rooms'
-      | 'province'
-      | 'city'
-      | 'priceMin'
-      | 'priceMax'
-      | 'spaceMin'
-      | 'spaceMax',
+    filterObjectKey: FilterObjectKeysAsString,
   ) => void
 }
 
