@@ -52,6 +52,7 @@ const offersFromBackend = [
 ]
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true)
   const [fetchedBackendOffers, setFetchedBackendOffers] = useState<EstateProps[]>([])
   const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>([])
   const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<boolean>(false)
@@ -80,7 +81,7 @@ function App() {
     <ThemeColorContext.Provider value={appColorTheme}>
       <div>
         <div className={styles.bgImage} />
-        <Header />
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <HeadingPaper />
         <SearchFilter searchHandler={searchHandler} />
         <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />

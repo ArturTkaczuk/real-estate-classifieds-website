@@ -16,13 +16,15 @@ import styles from './Header.module.css'
 import { Logout } from '@mui/icons-material'
 import logo from '../../assets/images/logo.png'
 
-// type HeaderProps = {
-//   prop: string
-// }
+type HeaderProps = {
+  isLoggedIn: boolean
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-export const Header = (/*{ prop }: HeaderProps*/): JSX.Element => {
-  const [loggedIn, setLoggedIn] = useState<true | false>(true)
-
+export const Header = ({
+  isLoggedIn: loggedIn,
+  setIsLoggedIn: setLoggedIn,
+}: HeaderProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
