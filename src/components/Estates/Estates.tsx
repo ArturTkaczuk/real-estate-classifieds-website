@@ -1,5 +1,6 @@
 import { CircularProgress, Container, Paper, Typography } from '@mui/material'
 import { EstateProps } from '../../types'
+import { LoadingOffers } from '../UI/LoadingOffers/LoadingOffers'
 import { Estate } from './Estate/Estate'
 
 interface EstatesProps {
@@ -21,20 +22,7 @@ export const Estates = ({ offers, backendOffersFetchStatus }: EstatesProps): JSX
           return <Estate key={index} {...offer} />
         })
       ) : (
-        <Paper
-          sx={{
-            height: '100px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '10px',
-          }}
-        >
-          <Typography variant='h5' component='h2'>
-            Offers Loading
-          </Typography>
-          <CircularProgress color='success' />
-        </Paper>
+        <LoadingOffers />
       )}
     </Container>
   )
