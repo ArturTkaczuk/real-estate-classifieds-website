@@ -5,7 +5,7 @@ import { Estate } from './Estate/Estate'
 
 interface EstatesProps {
   offers: EstateProps[]
-  backendOffersFetchStatus: boolean
+  backendOffersFetchStatus: 'fetching' | 'fetched'
 }
 
 export const Estates = ({ offers, backendOffersFetchStatus }: EstatesProps): JSX.Element => {
@@ -17,12 +17,12 @@ export const Estates = ({ offers, backendOffersFetchStatus }: EstatesProps): JSX
         </Typography>
       </Paper>
 
-      {backendOffersFetchStatus ? (
+      {backendOffersFetchStatus === 'fetching' ? (
+        <OffersLoading />
+      ) : (
         offers.map((offer, index) => {
           return <Estate key={index} {...offer} />
         })
-      ) : (
-        <OffersLoading />
       )}
     </Container>
   )

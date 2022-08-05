@@ -55,7 +55,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true)
   const [fetchedBackendOffers, setFetchedBackendOffers] = useState<EstateProps[]>([])
   const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>([])
-  const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<boolean>(false)
+  const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<'fetching' | 'fetched'>(
+    'fetching',
+  )
 
   const appColorTheme = 'success'
 
@@ -66,7 +68,7 @@ function App() {
       setFetchedBackendOffers(offersFromBackend)
       setDisplayedOffers(offersFromBackend)
 
-      setBackendOffersFetchStatus(true)
+      setBackendOffersFetchStatus('fetched')
     }
 
     fetchOffersOnAppLoad()
