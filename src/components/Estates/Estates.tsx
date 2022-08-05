@@ -1,12 +1,13 @@
-import { Container, Paper, Typography } from '@mui/material'
+import { CircularProgress, Container, Paper, Typography } from '@mui/material'
 import { EstateProps } from '../../types'
 import { Estate } from './Estate/Estate'
 
 interface EstatesProps {
   offers: EstateProps[]
+  backendOffersFetchStatus: boolean
 }
 
-export const Estates = ({ offers }: EstatesProps): JSX.Element => {
+export const Estates = ({ offers, backendOffersFetchStatus }: EstatesProps): JSX.Element => {
   return (
     <Container>
       <Paper sx={{ marginBottom: '10px' }}>
@@ -15,9 +16,26 @@ export const Estates = ({ offers }: EstatesProps): JSX.Element => {
         </Typography>
       </Paper>
 
-      {offers.map((offer, index) => {
-        return <Estate key={index} {...offer} />
-      })}
+      {backendOffersFetchStatus ? (
+        offers.map((offer, index) => {
+          return <Estate key={index} {...offer} />
+        })
+      ) : (
+        <Paper
+          sx={{
+            height: '100px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '10px',
+          }}
+        >
+          <Typography variant='h5' component='h2'>
+            Offers Loading
+          </Typography>
+          <CircularProgress color='success' />
+        </Paper>
+      )}
     </Container>
   )
 }

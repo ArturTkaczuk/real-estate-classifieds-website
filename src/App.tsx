@@ -7,7 +7,7 @@ import offerOne from './assets/images/offer1.jpg'
 import offerTwo from './assets/images/offer2.jpg'
 import offerThree from './assets/images/offer3.jpg'
 import { Footer } from './components/Footer/Footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { EstateProps, FilterSettings } from './types'
 import { filterObjectArrayWithObject } from './utils/filterFunction'
 
@@ -51,10 +51,25 @@ const offersFromBackend = [
 ]
 
 function App() {
-  const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>(offersFromBackend)
+  const [fetchedBackendOffers, setFetchedBackendOffers] = useState<EstateProps[]>([])
+  const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>([])
+  const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<boolean>(false)
+
+  useEffect(() => {
+    const fetchOffersOnAppLoad = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 10000))
+
+      setFetchedBackendOffers(offersFromBackend)
+      setDisplayedOffers(offersFromBackend)
+
+      setBackendOffersFetchStatus(true)
+    }
+
+    fetchOffersOnAppLoad()
+  }, [])
 
   const searchHandler = (filterSettings: FilterSettings) => {
-    const filteredOffers = filterObjectArrayWithObject(offersFromBackend, filterSettings)
+    const filteredOffers = filterObjectArrayWithObject(fetchedBackendOffers, filterSettings)
     setDisplayedOffers(filteredOffers)
   }
 
@@ -64,7 +79,7 @@ function App() {
       <Header />
       <HeadingPaper />
       <SearchFilter searchHandler={searchHandler} />
-      <Estates offers={displayedOffers} />
+      <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
       <Footer />
     </div>
   )
