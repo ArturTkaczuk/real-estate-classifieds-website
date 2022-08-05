@@ -1,5 +1,6 @@
 import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ThemeColorContext } from '../../context/ThemeColorContext'
 import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
 import {
   CityInput,
@@ -18,6 +19,8 @@ interface SearchFilterProps {
 
 export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element => {
   const [filterSettings, setFilterSettings] = useState<FilterSettings>({})
+
+  const themeColor = useContext(ThemeColorContext)
 
   const handleFilterSettingsChange = (
     event: FilterInputChangeEvent,
@@ -89,7 +92,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
           <Grid item xs={12} lg={4}>
             <Button
               sx={{ width: '100%', height: '56px' }}
-              color='success'
+              color={themeColor}
               size='large'
               variant='contained'
               onClick={() => searchHandler(filterSettings)}

@@ -10,6 +10,7 @@ import { Footer } from './components/Footer/Footer'
 import { useEffect, useState } from 'react'
 import { EstateProps, FilterSettings } from './types'
 import { filterObjectArrayWithObject } from './utils/filterFunction'
+import { ThemeColorContext } from './context/ThemeColorContext'
 
 const offersFromBackend = [
   {
@@ -55,6 +56,8 @@ function App() {
   const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>([])
   const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<boolean>(false)
 
+  const appColorTheme = 'success'
+
   useEffect(() => {
     const fetchOffersOnAppLoad = async () => {
       await new Promise((resolve) => setTimeout(resolve, 10000))
@@ -74,14 +77,16 @@ function App() {
   }
 
   return (
-    <div>
-      <div className={styles.bgImage} />
-      <Header />
-      <HeadingPaper />
-      <SearchFilter searchHandler={searchHandler} />
-      <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
-      <Footer />
-    </div>
+    <ThemeColorContext.Provider value={appColorTheme}>
+      <div>
+        <div className={styles.bgImage} />
+        <Header />
+        <HeadingPaper />
+        <SearchFilter searchHandler={searchHandler} />
+        <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
+        <Footer />
+      </div>
+    </ThemeColorContext.Provider>
   )
 }
 

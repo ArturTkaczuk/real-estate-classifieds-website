@@ -1,6 +1,10 @@
 import { CircularProgress, Paper, Typography } from '@mui/material'
+import { useContext } from 'react'
+import { ThemeColorContext } from '../../../context/ThemeColorContext'
 
 export const OffersLoading = (): JSX.Element => {
+  const themeColor = useContext(ThemeColorContext)
+
   return (
     <Paper
       sx={{
@@ -14,7 +18,7 @@ export const OffersLoading = (): JSX.Element => {
       <Typography variant='h5' component='h2'>
         Offers Loading
       </Typography>
-      <CircularProgress color='success' />
+      <CircularProgress color={themeColor} />
     </Paper>
   )
 }

@@ -37,3 +37,13 @@ export type FilterObjectKeysAsString =
   | 'priceMax'
   | 'spaceMin'
   | 'spaceMax'
+
+export type MUIColorType =
+  | 'success'
+  | 'inherit'
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'info'
+  | 'warning'
+  | undefined
