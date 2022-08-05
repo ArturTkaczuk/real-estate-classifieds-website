@@ -10,8 +10,8 @@ import {
   RoomsInput,
   SpaceMaxInput,
   SpaceMinInput,
-  TypeInput,
 } from './InputElements/InputElements'
+import { MemoizedTypeInput } from './InputElements/TypeInput'
 
 interface SearchFilterProps {
   searchHandler: (filterSettings: FilterSettings) => void
@@ -19,6 +19,8 @@ interface SearchFilterProps {
 
 export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element => {
   const [filterSettings, setFilterSettings] = useState<FilterSettings>({})
+
+  const { type } = filterSettings
 
   const themeColor = useContext(ThemeColorContext)
 
@@ -34,9 +36,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
       <Paper sx={{ padding: '0 20px 20px 20px' }}>
         <Grid container spacing={2}>
           <Grid item xs={6} lg={2}>
-            <TypeInput
+            <MemoizedTypeInput
               handleFilterSettingsChange={handleFilterSettingsChange}
-              filterSettings={filterSettings}
+              type={type}
             />
           </Grid>
           <Grid item xs={6} lg={2}>

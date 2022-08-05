@@ -9,28 +9,6 @@ type TypeSelectProps = {
   ) => void
 }
 
-export const TypeInput = ({
-  filterSettings,
-  handleFilterSettingsChange,
-}: TypeSelectProps): JSX.Element => {
-  return (
-    <FormControl sx={{ width: '100%' }}>
-      <InputLabel id='type-select-label'>Type</InputLabel>
-      <Select
-        labelId='type-select-label'
-        id='type-select'
-        value={filterSettings.type || ''}
-        label='type'
-        onChange={(event) => handleFilterSettingsChange(event, 'type')}
-      >
-        <MenuItem value=''>Both</MenuItem>
-        <MenuItem value='rental'>Rentals</MenuItem>
-        <MenuItem value='sale'>Sales</MenuItem>
-      </Select>
-    </FormControl>
-  )
-}
-
 export const RoomsInput = ({
   filterSettings,
   handleFilterSettingsChange,

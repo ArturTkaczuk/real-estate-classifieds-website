@@ -47,3 +47,8 @@ export type MUIColorType =
   | 'info'
   | 'warning'
   | undefined
+
+export type handleFilterSettingsChangeType = (
+  event: FilterInputChangeEvent,
+  filterObjectKey: FilterObjectKeysAsString,
+) => void
