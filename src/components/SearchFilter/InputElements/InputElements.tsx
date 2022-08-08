@@ -9,33 +9,6 @@ type TypeSelectProps = {
   ) => void
 }
 
-export const RoomsInput = ({
-  filterSettings,
-  handleFilterSettingsChange,
-}: TypeSelectProps): JSX.Element => {
-  return (
-    <FormControl sx={{ width: '100%' }}>
-      <InputLabel id='rooms-select-label'>Rooms</InputLabel>
-      <Select
-        labelId='rooms-select-label'
-        id='rooms-select'
-        value={filterSettings.rooms || ''}
-        label='rooms'
-        onChange={(event) => handleFilterSettingsChange(event, 'rooms')}
-      >
-        <MenuItem value=''>All</MenuItem>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((room) => {
-          return (
-            <MenuItem key={room} value={room}>
-              {room}
-            </MenuItem>
-          )
-        })}
-      </Select>
-    </FormControl>
-  )
-}
-
 export const ProvinceInput = ({
   filterSettings,
   handleFilterSettingsChange,
