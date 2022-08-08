@@ -2,8 +2,8 @@ import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material'
 import { useContext, useState } from 'react'
 import { ThemeColorContext } from '../../context/ThemeColorContext'
 import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
+import { MemoizedCityInput } from './InputElements/CityInput'
 import {
-  CityInput,
   PriceMaxInput,
   PriceMinInput,
   SpaceMaxInput,
@@ -23,6 +23,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
   const [filterSettingType, setFilterSettingType] = useState<string>('')
   const [filterSettingRooms, setFilterSettingRooms] = useState<number | string>('')
   const [filterSettingProvince, setFilterSettingProvince] = useState<string>('')
+  const [filterSettingCity, setFilterSettingCity] = useState<string>('')
 
   const themeColor = useContext(ThemeColorContext)
 
@@ -58,9 +59,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
           </Grid>
 
           <Grid item xs={12} sm={6} lg={4}>
-            <CityInput
-              handleFilterSettingsChange={handleFilterSettingsChange}
-              filterSettings={filterSettings}
+            <MemoizedCityInput
+              filterSettingCity={filterSettingCity}
+              setFilterSettingCity={setFilterSettingCity}
             />
           </Grid>
 

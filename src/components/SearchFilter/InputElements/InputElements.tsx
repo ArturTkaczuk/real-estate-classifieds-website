@@ -9,22 +9,6 @@ type TypeSelectProps = {
   ) => void
 }
 
-export const CityInput = ({
-  filterSettings,
-  handleFilterSettingsChange,
-}: TypeSelectProps): JSX.Element => {
-  return (
-    <TextField
-      sx={{ width: '100%' }}
-      id='city'
-      label='City'
-      variant='outlined'
-      value={filterSettings.city || ''}
-      onChange={(event) => handleFilterSettingsChange(event, 'city')}
-    />
-  )
-}
-
 export const PriceMinInput = ({
   filterSettings,
   handleFilterSettingsChange,
