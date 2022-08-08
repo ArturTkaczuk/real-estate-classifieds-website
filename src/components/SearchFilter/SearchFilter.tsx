@@ -6,10 +6,10 @@ import {
   CityInput,
   PriceMaxInput,
   PriceMinInput,
-  ProvinceInput,
   SpaceMaxInput,
   SpaceMinInput,
 } from './InputElements/InputElements'
+import { MemoizedProvinceInput } from './InputElements/ProvinceInput'
 import { MemoizedRoomsInput } from './InputElements/RoomsInput'
 import { MemoizedTypeInput } from './InputElements/TypeInput'
 
@@ -22,6 +22,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
 
   const [filterSettingType, setFilterSettingType] = useState<string>('')
   const [filterSettingRooms, setFilterSettingRooms] = useState<number | string>('')
+  const [filterSettingProvince, setFilterSettingProvince] = useState<string>('')
 
   const themeColor = useContext(ThemeColorContext)
 
@@ -50,9 +51,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
           </Grid>
 
           <Grid item xs={12} sm={6} lg={4}>
-            <ProvinceInput
-              handleFilterSettingsChange={handleFilterSettingsChange}
-              filterSettings={filterSettings}
+            <MemoizedProvinceInput
+              filterSettingProvince={filterSettingProvince}
+              setFilterSettingProvince={setFilterSettingProvince}
             />
           </Grid>
 
