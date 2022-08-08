@@ -3,11 +3,11 @@ import { useContext, useState } from 'react'
 import { ThemeColorContext } from '../../context/ThemeColorContext'
 import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
 import { MemoizedCityInput } from './InputElements/CityInput'
-import { SpaceMaxInput } from './InputElements/InputElements'
 import { MemoizedPriceMaxInput } from './InputElements/PriceMaxInput'
 import { MemoizedPriceMinInput } from './InputElements/PriceMinInput'
 import { MemoizedProvinceInput } from './InputElements/ProvinceInput'
 import { MemoizedRoomsInput } from './InputElements/RoomsInput'
+import { MemoizedSpaceMaxInput } from './InputElements/SpaceMaxInput'
 import { MemoizedSpaceMinInput } from './InputElements/SpaceMinInput'
 import { MemoizedTypeInput } from './InputElements/TypeInput'
 
@@ -16,8 +16,6 @@ interface SearchFilterProps {
 }
 
 export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element => {
-  const [filterSettings, setFilterSettings] = useState<FilterSettings>({})
-
   const [filterSettingType, setFilterSettingType] = useState<string>('')
   const [filterSettingRooms, setFilterSettingRooms] = useState<number | string>('')
   const [filterSettingProvince, setFilterSettingProvince] = useState<string>('')
@@ -25,15 +23,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
   const [filterSettingPriceMin, setFilterSettingPriceMin] = useState<number | string>('')
   const [filterSettingPriceMax, setFilterSettingPriceMax] = useState<number | string>('')
   const [filterSettingSpaceMin, setFilterSettingSpaceMin] = useState<number | string>('')
+  const [filterSettingSpaceMax, setFilterSettingSpaceMax] = useState<number | string>('')
 
   const themeColor = useContext(ThemeColorContext)
-
-  const handleFilterSettingsChange = (
-    event: FilterInputChangeEvent,
-    filterObjectKey: FilterObjectKeysAsString,
-  ) => {
-    setFilterSettings({ ...filterSettings, ...{ [filterObjectKey]: event.target.value } })
-  }
 
   return (
     <Container sx={{ marginBottom: '100px' }}>
@@ -88,9 +80,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
                 setFilterSettingSpaceMin={setFilterSettingSpaceMin}
               />
               <Typography sx={{ fontSize: '2rem', margin: '0 3.5px' }}>-</Typography>
-              <SpaceMaxInput
-                handleFilterSettingsChange={handleFilterSettingsChange}
-                filterSettings={filterSettings}
+              <MemoizedSpaceMaxInput
+                filterSettingSpaceMax={filterSettingSpaceMax}
+                setFilterSettingSpaceMax={setFilterSettingSpaceMax}
               />
             </Box>
           </Grid>
@@ -101,7 +93,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
               color={themeColor}
               size='large'
               variant='contained'
-              onClick={() => searchHandler(filterSettings)}
+              onClick={() => searchHandler({})}
             >
               Search
             </Button>
