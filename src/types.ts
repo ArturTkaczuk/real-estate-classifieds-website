@@ -1,6 +1,3 @@
-import { SelectChangeEvent } from '@mui/material'
-import { ChangeEvent } from 'react'
-
 export interface EstateProps {
   imgLink: string
   offerTitle: string
@@ -15,28 +12,14 @@ export interface EstateProps {
 
 export interface FilterSettings {
   type?: string
-  rooms?: number
+  rooms?: number | string
   province?: string
   city?: string
-  priceMin?: number
-  priceMax?: number
-  spaceMin?: number
-  spaceMax?: number
+  priceMin?: number | string
+  priceMax?: number | string
+  spaceMin?: number | string
+  spaceMax?: number | string
 }
-
-export type FilterInputChangeEvent =
-  | SelectChangeEvent<string | number>
-  | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-
-export type FilterObjectKeysAsString =
-  | 'type'
-  | 'rooms'
-  | 'province'
-  | 'city'
-  | 'priceMin'
-  | 'priceMax'
-  | 'spaceMin'
-  | 'spaceMax'
 
 export type MUIColorType =
   | 'success'
@@ -47,8 +30,3 @@ export type MUIColorType =
   | 'info'
   | 'warning'
   | undefined
-
-export type handleFilterSettingsChangeType = (
-  event: FilterInputChangeEvent,
-  filterObjectKey: FilterObjectKeysAsString,
-) => void

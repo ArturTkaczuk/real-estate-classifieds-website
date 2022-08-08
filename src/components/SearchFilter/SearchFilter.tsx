@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material'
 import { useContext, useState } from 'react'
 import { ThemeColorContext } from '../../context/ThemeColorContext'
-import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
+import { FilterSettings } from '../../types'
 import { MemoizedCityInput } from './InputElements/CityInput'
 import { MemoizedPriceMaxInput } from './InputElements/PriceMaxInput'
 import { MemoizedPriceMinInput } from './InputElements/PriceMinInput'
@@ -93,7 +93,18 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
               color={themeColor}
               size='large'
               variant='contained'
-              onClick={() => searchHandler({})}
+              onClick={() =>
+                searchHandler({
+                  type: filterSettingType,
+                  rooms: filterSettingRooms,
+                  province: filterSettingProvince,
+                  city: filterSettingCity,
+                  priceMin: filterSettingPriceMin,
+                  priceMax: filterSettingPriceMax,
+                  spaceMin: filterSettingSpaceMin,
+                  spaceMax: filterSettingSpaceMax,
+                })
+              }
             >
               Search
             </Button>
