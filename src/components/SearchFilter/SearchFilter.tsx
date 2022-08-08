@@ -3,7 +3,8 @@ import { useContext, useState } from 'react'
 import { ThemeColorContext } from '../../context/ThemeColorContext'
 import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
 import { MemoizedCityInput } from './InputElements/CityInput'
-import { PriceMaxInput, SpaceMaxInput, SpaceMinInput } from './InputElements/InputElements'
+import { SpaceMaxInput, SpaceMinInput } from './InputElements/InputElements'
+import { MemoizedPriceMaxInput } from './InputElements/PriceMaxInput'
 import { MemoizedPriceMinInput } from './InputElements/PriceMinInput'
 import { MemoizedProvinceInput } from './InputElements/ProvinceInput'
 import { MemoizedRoomsInput } from './InputElements/RoomsInput'
@@ -21,6 +22,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
   const [filterSettingProvince, setFilterSettingProvince] = useState<string>('')
   const [filterSettingCity, setFilterSettingCity] = useState<string>('')
   const [filterSettingPriceMin, setFilterSettingPriceMin] = useState<number | string>('')
+  const [filterSettingPriceMax, setFilterSettingPriceMax] = useState<number | string>('')
 
   const themeColor = useContext(ThemeColorContext)
 
@@ -70,9 +72,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
               />
               <Typography sx={{ fontSize: '2rem', margin: '0 3.5px' }}>-</Typography>
 
-              <PriceMaxInput
-                handleFilterSettingsChange={handleFilterSettingsChange}
-                filterSettings={filterSettings}
+              <MemoizedPriceMaxInput
+                filterSettingPriceMax={filterSettingPriceMax}
+                setFilterSettingPriceMax={setFilterSettingPriceMax}
               />
             </Box>
           </Grid>
