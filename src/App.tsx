@@ -40,7 +40,7 @@ const offersFromBackend = [
   {
     imgLink: offerThree,
     offerTitle: 'I am renting a 2-room flat - available immediately!',
-    city: 'Cracov',
+    city: 'Kraków',
     province: 'Lesser Poland',
     price: 2_000,
     squareMeters: 53,
