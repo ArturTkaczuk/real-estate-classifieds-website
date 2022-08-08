@@ -1,21 +1,23 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import { handleFilterSettingsChangeType } from '../../../types'
 
 type TypeInputProps = {
-  type?: string
-  handleFilterSettingsChange: handleFilterSettingsChangeType
+  filterSettingType: string
+  setFilterSettingType: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const TypeInput = ({ type, handleFilterSettingsChange }: TypeInputProps): JSX.Element => {
+export const TypeInput = ({
+  filterSettingType,
+  setFilterSettingType,
+}: TypeInputProps): JSX.Element => {
   return (
     <FormControl sx={{ width: '100%' }}>
       <InputLabel id='type-select-label'>Type</InputLabel>
       <Select
         labelId='type-select-label'
         id='type-select'
-        value={type || ''}
+        value={filterSettingType || ''}
         label='type'
-        onChange={(event) => handleFilterSettingsChange(event, 'type')}
+        onChange={(event) => setFilterSettingType(event.target.value)}
       >
         <MenuItem value=''>Both</MenuItem>
         <MenuItem value='rental'>Rentals</MenuItem>
