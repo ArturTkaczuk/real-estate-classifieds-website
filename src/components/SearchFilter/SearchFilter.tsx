@@ -3,12 +3,8 @@ import { useContext, useState } from 'react'
 import { ThemeColorContext } from '../../context/ThemeColorContext'
 import { FilterSettings, FilterInputChangeEvent, FilterObjectKeysAsString } from '../../types'
 import { MemoizedCityInput } from './InputElements/CityInput'
-import {
-  PriceMaxInput,
-  PriceMinInput,
-  SpaceMaxInput,
-  SpaceMinInput,
-} from './InputElements/InputElements'
+import { PriceMaxInput, SpaceMaxInput, SpaceMinInput } from './InputElements/InputElements'
+import { MemoizedPriceMinInput } from './InputElements/PriceMinInput'
 import { MemoizedProvinceInput } from './InputElements/ProvinceInput'
 import { MemoizedRoomsInput } from './InputElements/RoomsInput'
 import { MemoizedTypeInput } from './InputElements/TypeInput'
@@ -24,6 +20,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
   const [filterSettingRooms, setFilterSettingRooms] = useState<number | string>('')
   const [filterSettingProvince, setFilterSettingProvince] = useState<string>('')
   const [filterSettingCity, setFilterSettingCity] = useState<string>('')
+  const [filterSettingPriceMin, setFilterSettingPriceMin] = useState<number | string>('')
 
   const themeColor = useContext(ThemeColorContext)
 
@@ -67,9 +64,9 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
 
           <Grid item xs={12} lg={4}>
             <Box sx={{ display: 'flex' }}>
-              <PriceMinInput
-                handleFilterSettingsChange={handleFilterSettingsChange}
-                filterSettings={filterSettings}
+              <MemoizedPriceMinInput
+                filterSettingPriceMin={filterSettingPriceMin}
+                setFilterSettingPriceMin={setFilterSettingPriceMin}
               />
               <Typography sx={{ fontSize: '2rem', margin: '0 3.5px' }}>-</Typography>
 

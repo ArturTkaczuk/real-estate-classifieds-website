@@ -9,25 +9,6 @@ type TypeSelectProps = {
   ) => void
 }
 
-export const PriceMinInput = ({
-  filterSettings,
-  handleFilterSettingsChange,
-}: TypeSelectProps): JSX.Element => {
-  return (
-    <TextField
-      sx={{ width: '50%' }}
-      id='priceMin'
-      label='Min price (PLN)'
-      variant='outlined'
-      value={filterSettings.priceMin || ''}
-      onChange={(event) => handleFilterSettingsChange(event, 'priceMin')}
-      inputProps={{
-        type: 'number',
-      }}
-    />
-  )
-}
-
 export const PriceMaxInput = ({
   filterSettings,
   handleFilterSettingsChange,
