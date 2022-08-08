@@ -9,25 +9,6 @@ type TypeSelectProps = {
   ) => void
 }
 
-export const SpaceMinInput = ({
-  filterSettings,
-  handleFilterSettingsChange,
-}: TypeSelectProps): JSX.Element => {
-  return (
-    <TextField
-      sx={{ width: '50%' }}
-      id='spaceMin'
-      label='Min space (&#13217;)'
-      variant='outlined'
-      value={filterSettings.spaceMin || ''}
-      onChange={(event) => handleFilterSettingsChange(event, 'spaceMin')}
-      inputProps={{
-        type: 'number',
-      }}
-    />
-  )
-}
-
 export const SpaceMaxInput = ({
   filterSettings,
   handleFilterSettingsChange,
