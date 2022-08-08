@@ -1,14 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { memo } from 'react'
 
 type TypeInputProps = {
   filterSettingType: string
   setFilterSettingType: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const TypeInput = ({
-  filterSettingType,
-  setFilterSettingType,
-}: TypeInputProps): JSX.Element => {
+const TypeInput = ({ filterSettingType, setFilterSettingType }: TypeInputProps): JSX.Element => {
   return (
     <FormControl sx={{ width: '100%' }}>
       <InputLabel id='type-select-label'>Type</InputLabel>
@@ -26,3 +24,5 @@ export const TypeInput = ({
     </FormControl>
   )
 }
+
+export const MemoizedTypeInput = memo(TypeInput)
