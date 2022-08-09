@@ -21,10 +21,7 @@ type HeaderProps = {
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const Header = ({
-  isLoggedIn: loggedIn,
-  setIsLoggedIn: setLoggedIn,
-}: HeaderProps): JSX.Element => {
+export const Header = ({ isLoggedIn, setIsLoggedIn }: HeaderProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -95,7 +92,7 @@ export const Header = ({
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-          {loggedIn ? (
+          {isLoggedIn ? (
             <div>
               <MenuItem>
                 <Avatar /> Profile
@@ -104,7 +101,7 @@ export const Header = ({
                 <Avatar /> My offers
               </MenuItem>
               <Divider />
-              <MenuItem onClick={() => setLoggedIn(!loggedIn)}>
+              <MenuItem onClick={() => setIsLoggedIn(!isLoggedIn)}>
                 <ListItemIcon>
                   <Logout fontSize='small' />
                 </ListItemIcon>
@@ -113,7 +110,7 @@ export const Header = ({
             </div>
           ) : (
             <div>
-              <MenuItem onClick={() => setLoggedIn(!loggedIn)}>
+              <MenuItem onClick={() => setIsLoggedIn(!isLoggedIn)}>
                 <Avatar /> Login
               </MenuItem>
               <MenuItem>
