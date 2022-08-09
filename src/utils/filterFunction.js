@@ -1,31 +1,40 @@
 export function filterObjectArrayWithObject(objectArrayToFilter, filterObjectSettings) {
-  let filteredObjects = [...objectArrayToFilter]
+  let processedObjectArray = [...objectArrayToFilter]
 
   //iterate through filterObjectSettings key:value pairs
-  for (const [key, value] of Object.entries(filterObjectSettings)) {
-    // price range filters
-    if (key == 'priceMin') {
-      filteredObjects = filteredObjects.filter((object) => object.price >= value)
-    } else if (key == 'priceMax') {
-      filteredObjects = filteredObjects.filter(
-        (object) => object.price <= (value === '' ? Infinity : value),
-      )
-    }
+  for (const [filterKey, filterValue] of Object.entries(filterObjectSettings)) {
+    switch (filterKey) {
+      case 'priceMin':
+        processedObjectArray = processedObjectArray.filter(
+          (processedObject) => processedObject.price >= filterValue,
+        )
+        break
+      case 'priceMax':
+        processedObjectArray = processedObjectArray.filter(
+          (processedObject) =>
+            processedObject.price <= (filterValue === '' ? Infinity : filterValue),
+        )
+        break
+      case 'spaceMin':
+        processedObjectArray = processedObjectArray.filter(
+          (processedObject) => processedObject.squareMeters >= filterValue,
+        )
+        break
+      case 'spaceMax':
+        processedObjectArray = processedObjectArray.filter(
+          (processedObject) =>
+            processedObject.squareMeters <= (filterValue === '' ? Infinity : filterValue),
+        )
+        break
 
-    // space range filters
-    else if (key == 'spaceMin') {
-      filteredObjects = filteredObjects.filter((object) => object.squareMeters >= value)
-    } else if (key == 'spaceMax') {
-      filteredObjects = filteredObjects.filter(
-        (object) => object.squareMeters <= (value === '' ? Infinity : value),
-      )
-    }
-
-    //single value filter
-    else {
-      filteredObjects = filteredObjects.filter((object) => String(object[key]).includes(value))
+      default:
+        //single value filter
+        processedObjectArray = processedObjectArray.filter((processedObject) =>
+          String(processedObject[filterKey]).includes(filterValue),
+        )
+        break
     }
   }
 
-  return filteredObjects
+  return processedObjectArray
 }
