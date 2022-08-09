@@ -1,6 +1,5 @@
 import { Header } from './components/Header/Header'
 import { HeadingPaper } from './components/HeadingPaper/HeadingPaper'
-import styles from './App.module.css'
 import { SearchFilter } from './components/SearchFilter/SearchFilter'
 import { Estates } from './components/Estates/Estates'
 import offerOne from './assets/images/offer1.jpg'
@@ -11,6 +10,8 @@ import { useEffect, useState } from 'react'
 import { EstateProps, FilterSettings } from './types'
 import { filterObjectArrayWithObject } from './utils/filterFunction'
 import { ThemeColorContext } from './context/ThemeColorContext'
+import { BackgroundImage } from './components/BackgroundImage/BackgroundImage'
+import { Box } from '@mui/material'
 
 const offersFromBackend = [
   {
@@ -84,14 +85,14 @@ function App() {
 
   return (
     <ThemeColorContext.Provider value={appColorTheme}>
-      <div>
-        <div className={styles.bgImage} />
+      <Box>
+        <BackgroundImage />
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <HeadingPaper />
         <SearchFilter searchHandler={searchHandler} />
         <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
         <Footer />
-      </div>
+      </Box>
     </ThemeColorContext.Provider>
   )
 }
