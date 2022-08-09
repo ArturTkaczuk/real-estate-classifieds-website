@@ -7,7 +7,7 @@ import offerTwo from './assets/images/offer2.jpg'
 import offerThree from './assets/images/offer3.jpg'
 import { Footer } from './components/Footer/Footer'
 import { useEffect, useState } from 'react'
-import { EstateProps, FilterSettings } from './types'
+import { EstateProps, FilterSettings, MUIColorType } from './types'
 import { filterObjectArrayWithObject } from './utils/filterFunction'
 import { ThemeColorContext } from './context/ThemeColorContext'
 import { BackgroundImage } from './components/BackgroundImage/BackgroundImage'
@@ -63,7 +63,7 @@ function App() {
     'fetching',
   )
 
-  const appColorTheme = 'success'
+  const appColorTheme: MUIColorType = 'success'
 
   useEffect(() => {
     const fetchOffersOnAppLoad = async () => {
