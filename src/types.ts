@@ -1,4 +1,5 @@
 export interface EstateProps {
+  id: number
   imgLink: string
   offerTitle: string
   city: string
