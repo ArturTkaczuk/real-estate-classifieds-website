@@ -63,7 +63,7 @@ function App() {
 
   useEffect(() => {
     const fetchOffersOnAppLoad = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 10000))
+      await new Promise((resolve) => setTimeout(resolve, 2000))
 
       setFetchedBackendOffers(offersFromBackend)
       setDisplayedOffers(offersFromBackend)
