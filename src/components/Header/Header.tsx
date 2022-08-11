@@ -16,10 +16,9 @@ import styles from './Header.module.css'
 import { Logout } from '@mui/icons-material'
 import logo from '../../assets/images/logo.png'
 import { AuthContext } from '../../context/AuthContext'
-import { AuthActionType } from '../../types/authTypes'
 
 export const Header = (): JSX.Element => {
-  const { isLoggedIn, dispatch } = useContext(AuthContext)
+  const { isLoggedIn, logIn, logOut } = useContext(AuthContext)
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
@@ -100,11 +99,7 @@ export const Header = (): JSX.Element => {
                 <Avatar /> My offers
               </MenuItem>
               <Divider />
-              <MenuItem
-                onClick={() => {
-                  dispatch({ type: AuthActionType.LOGOUT })
-                }}
-              >
+              <MenuItem onClick={() => logOut()}>
                 <ListItemIcon>
                   <Logout fontSize='small' />
                 </ListItemIcon>
@@ -113,11 +108,7 @@ export const Header = (): JSX.Element => {
             </div>
           ) : (
             <div>
-              <MenuItem
-                onClick={() => {
-                  dispatch({ type: AuthActionType.LOGIN })
-                }}
-              >
+              <MenuItem onClick={() => logIn()}>
                 <Avatar /> Login
               </MenuItem>
               <MenuItem>

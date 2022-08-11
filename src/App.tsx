@@ -8,6 +8,7 @@ import { Box } from '@mui/material'
 import { Home } from './pages/Home/Home'
 import { AuthContext } from './context/AuthContext'
 import { authInitialState, authReducer } from './reducers/authReducer'
+import { AuthActionType } from './types/authTypes'
 
 function App() {
   const [authState, dispatch] = useReducer(authReducer, authInitialState)
@@ -18,8 +19,9 @@ function App() {
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn: isLoggedIn,
-        dispatch,
+        isLoggedIn,
+        logIn: () => dispatch({ type: AuthActionType.LOGIN }),
+        logOut: () => dispatch({ type: AuthActionType.LOGOUT }),
       }}
     >
       <ThemeContext.Provider value={themeColor}>
