@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
   Avatar,
   Divider,
@@ -15,13 +15,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import styles from './Header.module.css'
 import { Logout } from '@mui/icons-material'
 import logo from '../../assets/images/logo.png'
+import { AuthContext } from '../../context/AuthContext'
+import { AuthActionType } from '../../types/authTypes'
 
-type HeaderProps = {
-  isLoggedIn: boolean
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
-}
+export const Header = (): JSX.Element => {
+  const { isLoggedIn, dispatch } = useContext(AuthContext)
 
-export const Header = ({ isLoggedIn, setIsLoggedIn }: HeaderProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -101,7 +100,11 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }: HeaderProps): JSX.Element 
                 <Avatar /> My offers
               </MenuItem>
               <Divider />
-              <MenuItem onClick={() => setIsLoggedIn(!isLoggedIn)}>
+              <MenuItem
+                onClick={() => {
+                  dispatch({ type: AuthActionType.LOGOUT })
+                }}
+              >
                 <ListItemIcon>
                   <Logout fontSize='small' />
                 </ListItemIcon>
@@ -110,7 +113,11 @@ export const Header = ({ isLoggedIn, setIsLoggedIn }: HeaderProps): JSX.Element 
             </div>
           ) : (
             <div>
-              <MenuItem onClick={() => setIsLoggedIn(!isLoggedIn)}>
+              <MenuItem
+                onClick={() => {
+                  dispatch({ type: AuthActionType.LOGIN })
+                }}
+              >
                 <Avatar /> Login
               </MenuItem>
               <MenuItem>
