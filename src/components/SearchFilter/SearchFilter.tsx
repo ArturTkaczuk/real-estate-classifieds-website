@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material'
 import { useContext, useState } from 'react'
-import { ThemeColorContext } from '../../context/ThemeColorContext'
+import { ThemeContext } from '../../context/ThemeContext'
 import { FilterSettings } from '../../types'
 import { MemoizedCityInput } from './InputElements/CityInput'
 import { MemoizedPriceMaxInput } from './InputElements/PriceMaxInput'
@@ -25,7 +25,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
   const [filterSettingSpaceMin, setFilterSettingSpaceMin] = useState<number | string>('')
   const [filterSettingSpaceMax, setFilterSettingSpaceMax] = useState<number | string>('')
 
-  const themeColor = useContext(ThemeColorContext)
+  const themeColor = useContext(ThemeContext)
 
   return (
     <Container sx={{ marginBottom: '100px' }}>

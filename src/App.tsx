@@ -9,7 +9,7 @@ import { Footer } from './components/Footer/Footer'
 import { useEffect, useState } from 'react'
 import { EstateProps, FilterSettings, MUIColorType } from './types'
 import { filterObjectArrayWithObject } from './utils/filterFunction'
-import { ThemeColorContext } from './context/ThemeColorContext'
+import { ThemeContext } from './context/ThemeContext'
 import { BackgroundImage } from './components/BackgroundImage/BackgroundImage'
 import { Box } from '@mui/material'
 
@@ -63,7 +63,7 @@ function App() {
     'fetching',
   )
 
-  const appColorTheme: MUIColorType = 'success'
+  const themeColor: MUIColorType = 'success'
 
   useEffect(() => {
     const fetchOffersOnAppLoad = async () => {
@@ -84,7 +84,7 @@ function App() {
   }
 
   return (
-    <ThemeColorContext.Provider value={appColorTheme}>
+    <ThemeContext.Provider value={themeColor}>
       <Box>
         <BackgroundImage />
         <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
@@ -93,7 +93,7 @@ function App() {
         <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
         <Footer />
       </Box>
-    </ThemeColorContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 
