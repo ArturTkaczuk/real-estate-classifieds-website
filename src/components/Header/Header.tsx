@@ -9,7 +9,6 @@ import {
   Menu,
   Box,
   Container,
-  Paper,
 } from '@mui/material'
 import { LogoTitle } from '../UI/LogoTitle/LogoTitle'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'

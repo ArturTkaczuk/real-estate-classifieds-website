@@ -9,7 +9,7 @@ import { Home } from './pages/Home/Home'
 import { AuthContext } from './context/AuthContext'
 import { authInitialState, authReducer } from './reducers/authReducer'
 import { AuthActionType } from './types/authTypes'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { OfferDetails } from './pages/OfferDetails/OfferDetails'
 
 function App() {
@@ -19,29 +19,27 @@ function App() {
   const themeColor: MUIColorType = 'success'
 
   return (
-    <BrowserRouter>
-      <AuthContext.Provider
-        value={{
-          isLoggedIn,
-          logIn: () => dispatch({ type: AuthActionType.LOGIN }),
-          logOut: () => dispatch({ type: AuthActionType.LOGOUT }),
-        }}
-      >
-        <ThemeContext.Provider value={themeColor}>
-          <Box>
-            <BackgroundImage />
-            <Header />
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        logIn: () => dispatch({ type: AuthActionType.LOGIN }),
+        logOut: () => dispatch({ type: AuthActionType.LOGOUT }),
+      }}
+    >
+      <ThemeContext.Provider value={themeColor}>
+        <Box>
+          <BackgroundImage />
+          <Header />
 
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='offers/:id' element={<OfferDetails />} />
-            </Routes>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='offers/:id' element={<OfferDetails />} />
+          </Routes>
 
-            <Footer />
-          </Box>
-        </ThemeContext.Provider>
-      </AuthContext.Provider>
-    </BrowserRouter>
+          <Footer />
+        </Box>
+      </ThemeContext.Provider>
+    </AuthContext.Provider>
   )
 }
 
