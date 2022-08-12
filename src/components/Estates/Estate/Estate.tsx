@@ -1,9 +1,11 @@
 import { Box, Paper, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { EstateProps } from '../../../types'
 import styles from './Estate.module.css'
 
 export const Estate = (props: EstateProps): JSX.Element => {
-  const { imgLink, offerTitle, city, province, price, squareMeters, type, rooms } = props
+  const navigate = useNavigate()
+  const { id, imgLink, offerTitle, city, province, price, squareMeters, type, rooms } = props
 
   function numberWithSpaces(x: number) {
     return Math.round(x)
@@ -12,7 +14,11 @@ export const Estate = (props: EstateProps): JSX.Element => {
   }
 
   return (
-    <Paper elevation={4} sx={{ cursor: 'pointer', marginBottom: '10px' }}>
+    <Paper
+      onClick={() => navigate(`offers/${id}`)}
+      elevation={4}
+      sx={{ cursor: 'pointer', marginBottom: '10px' }}
+    >
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' } }}>
         <Box
           sx={{
