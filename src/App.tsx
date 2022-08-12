@@ -30,7 +30,6 @@ function App() {
         <Box>
           <BackgroundImage />
           <Header />
-          <h1>TEST TEST TEST</h1>
 
           <Routes>
             <Route path='/' element={<Home />} />
