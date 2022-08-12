@@ -9,6 +9,7 @@ import {
   Menu,
   Box,
   Container,
+  Paper,
 } from '@mui/material'
 import { LogoTitle } from '../UI/LogoTitle/LogoTitle'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
@@ -16,6 +17,7 @@ import styles from './Header.module.css'
 import { Logout } from '@mui/icons-material'
 import logo from '../../assets/images/logo.png'
 import { AuthContext } from '../../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 export const Header = (): JSX.Element => {
   const { isLoggedIn, logIn, logOut } = useContext(AuthContext)
@@ -29,21 +31,24 @@ export const Header = (): JSX.Element => {
     setAnchorEl(null)
   }
 
+  const navigate = useNavigate()
+
   return (
     <header className={styles.header}>
       <Container sx={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
-        <Box
-          component='img'
-          sx={{
-            display: { xs: 'none', sm: 'inline-block' },
-            height: '50px',
-            width: '82px',
-            cursor: 'pointer',
-          }}
-          src={logo}
-          alt='logo'
-        />
-        <LogoTitle />
+        <Box sx={{ display: 'flex', gap: '25px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+          <Box
+            component='img'
+            sx={{
+              display: { xs: 'none', sm: 'inline-block' },
+              height: '50px',
+              width: '82px',
+            }}
+            src={logo}
+            alt='logo'
+          />
+          <LogoTitle />
+        </Box>
         <IconButton
           onClick={handleClick}
           sx={{ color: '#000', width: '43px', height: '43px', marginLeft: 'auto' }}
