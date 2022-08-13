@@ -5,7 +5,7 @@ import image11 from '../../assets/images/offer1-1.jpg'
 import image12 from '../../assets/images/offer1-2.jpg'
 import image13 from '../../assets/images/offer1-3.jpg'
 
-const offersFromBackend = {
+const offerFromBackend = {
   id: 1,
   images: [image11, image12, image13],
   offerTitle: 'Modern apartment, high standard',
@@ -25,7 +25,7 @@ export const OfferDetails = (): JSX.Element => {
   )
 
   const { id, images, offerTitle, city, province, price, squareMeters, type, rooms } =
-    offersFromBackend
+    offerFromBackend
 
   const urlParams = useParams()
 
