@@ -1,6 +1,6 @@
 export interface EstateProps {
   id: number
-  imgLink: string
+  images: string[]
   offerTitle: string
   city: string
   province: string

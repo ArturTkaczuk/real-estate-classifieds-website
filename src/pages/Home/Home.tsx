@@ -4,15 +4,22 @@ import { HeadingPaper } from '../../components/HeadingPaper/HeadingPaper'
 import { SearchFilter } from '../../components/SearchFilter/SearchFilter'
 import { EstateProps, FilterSettings } from '../../types'
 import { filterObjectArrayWithObject } from '../../utils/filterFunction'
-import offerOne from '../../assets/images/offer1.jpg'
-import offerTwo from '../../assets/images/offer2.jpg'
-import offerThree from '../../assets/images/offer3.jpg'
+import image11 from '../../assets/images/offer1-1.jpg'
+import image12 from '../../assets/images/offer1-2.jpg'
+import image13 from '../../assets/images/offer1-3.jpg'
+import image21 from '../../assets/images/offer2-1.jpg'
+import image22 from '../../assets/images/offer2-2.jpg'
+import image23 from '../../assets/images/offer2-3.jpg'
+import image31 from '../../assets/images/offer3-1.jpg'
+import image32 from '../../assets/images/offer3-2.jpg'
+import image33 from '../../assets/images/offer3-3.jpg'
+
 import { Box } from '@mui/material'
 
 const offersFromBackend = [
   {
     id: 1,
-    imgLink: offerOne,
+    images: [image11, image12, image13],
     offerTitle: 'Modern apartment, high standard',
     city: 'Warsaw',
     province: 'Masovian',
@@ -25,7 +32,7 @@ const offersFromBackend = [
   },
   {
     id: 2,
-    imgLink: offerTwo,
+    images: [image21, image22, image23],
     offerTitle: 'Spacious 3-room apartment, Warsow - great location',
     city: 'Warsaw',
     province: 'Masovian',
@@ -38,7 +45,7 @@ const offersFromBackend = [
   },
   {
     id: 3,
-    imgLink: offerThree,
+    images: [image31, image32, image33],
     offerTitle: 'I am renting a 2-room flat - available immediately!',
     city: 'Kraków',
     province: 'Lesser Poland',
