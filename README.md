@@ -1,6 +1,6 @@
-# Website (README TEMPLATE)
+# Real estate classifieds CRUD app (12.08.22)
 
-One of my first projects. Simple game made in JS, CSS & HTML to learn coding. Check it [Live here](https://smash-the-insect.netlify.app/)
+CRUD app (CRA-TypeScript build). Check it [Live here](https://home-estates-ea790.web.app)
 
 ## Table of Contents
 
@@ -26,46 +26,58 @@ One of my first projects. Simple game made in JS, CSS & HTML to learn coding. Ch
 Run commands in terminal:
 
 ```sh
-git clone project-name.github.com
-cd project-name
+git clone https://github.com/ArturTkaczuk/real-estate-classifieds-website.git
+cd real-estate-classifieds-website
 npm install
 ```
 
 **b) Download project manually from GitHub**
 
-1. Download project from [this link](https://github.com/ArturTkaczuk/project-template/archive/refs/heads/main.zip)
-2. Run index.html to open app in browser
+1. Download project from [this link](https://github.com/ArturTkaczuk/real-estate-classifieds-website/archive/refs/heads/main.zip)
+2. Unzip file
+3. Open terminal in project's directory and run `npm install`
 
 ## Usage
 
-Useful commands - run in project's directory:
+Useful npm scripts - run in project's directory:
 
-1. Dev server `npm run start`
-2. Production build `npm run build`
+Servers and build:
+1. Dev server `npm run watch:dev`
+2. Build server `npm run watch:prod`
+3. Production build `npm run build:prod`
+
+Code formatting scripts
+1. Lint project's code with eslint `npm run lint`
+2. Fix all linter's warnings `npm run lint:fix`
+3. Format project's code with prettier `npm run format:prettier`
+
+Deploying to firebase:
+1. Deploy script `npm run deploy`
 
 ## Technologies
 
 Technologies used during development process:
 
-- Vanilla JS
-- SCSS
-- HTML
+- Create-react-app-typescript
+- Material UI v5
+- eslint-prettier
+- React router v6
+- Firebase
 
 ## Features
 
-- timer
-- score counter
+- CRUD operations
 
 ## Support
 
-Please [open an issue](https://github.com/ArturTkaczuk/insect-game/issues) for support.
+Please [open an issue](https://github.com/ArturTkaczuk/real-estate-classifieds-website/issues) for support.
 
 ## Contributing
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/ArturTkaczuk/insect-game/compare).
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/ArturTkaczuk/real-estate-classifieds-website/compare).
 
 ## License
 
-> You can check out the full license [here](https://github.com/ArturTkaczuk/insect-game/blob/main/LICENSE).
+> You can check out the full license [here](https://github.com/ArturTkaczuk/real-estate-classifieds-website/blob/main/LICENSE).
 
 This project is licensed under the terms of the **_MIT license_**.
