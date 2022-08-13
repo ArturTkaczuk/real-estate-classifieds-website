@@ -1,6 +1,5 @@
-import { Box, Container } from '@mui/material'
+import { Container } from '@mui/material'
 import { useEffect, useState } from 'react'
-import Carousel from 'react-material-ui-carousel'
 import { useParams } from 'react-router-dom'
 import image11 from '../../assets/images/offer1-1.jpg'
 import image12 from '../../assets/images/offer1-2.jpg'
@@ -8,7 +7,7 @@ import image13 from '../../assets/images/offer1-3.jpg'
 
 const offersFromBackend = {
   id: 1,
-  images: [image11],
+  images: [image11, image12, image13],
   offerTitle: 'Modern apartment, high standard',
   city: 'Warsaw',
   province: 'Masovian',
