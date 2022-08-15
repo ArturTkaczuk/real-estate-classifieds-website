@@ -1,20 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.bcf3b98f.css",
-    "main.js": "/static/js/main.7260a863.js",
+    "main.css": "/static/css/main.8924c223.css",
+    "main.js": "/static/js/main.81f6b5de.js",
     "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
     "static/media/menu.jpg": "/static/media/menu.c9af3a6437d764ae03dc.jpg",
-    "static/media/offer3.jpg": "/static/media/offer3.bfa9d405859ba94da728.jpg",
-    "static/media/offer2.jpg": "/static/media/offer2.6a0aa873d4a57f16f308.jpg",
-    "static/media/offer1.jpg": "/static/media/offer1.e3c9f4c8e100c0fb9c1e.jpg",
+    "static/media/offer1-3.jpg": "/static/media/offer1-3.bfa9d405859ba94da728.jpg",
+    "static/media/offer1-2.jpg": "/static/media/offer1-2.6a0aa873d4a57f16f308.jpg",
+    "static/media/offer1-1.jpg": "/static/media/offer1-1.e3c9f4c8e100c0fb9c1e.jpg",
+    "static/media/offer2-3.jpg": "/static/media/offer2-3.c45feaf3429685de16f5.jpg",
+    "static/media/offer2-1.jpg": "/static/media/offer2-1.bdef7c1f52be22ad88de.jpg",
+    "static/media/offer3-2.jpg": "/static/media/offer3-2.89bd797d53870fb417db.jpg",
+    "static/media/offer3-1.jpg": "/static/media/offer3-1.4d2a9afdc378a3a8d645.jpg",
+    "static/media/offer2-2.jpg": "/static/media/offer2-2.1949453609be63b20165.jpg",
+    "static/media/offer3-3.jpg": "/static/media/offer3-3.33303ad56b6410ac53ce.jpg",
     "static/media/logo.png": "/static/media/logo.a88260cbb6f5d409bb0a.png",
     "index.html": "/index.html",
-    "main.bcf3b98f.css.map": "/static/css/main.bcf3b98f.css.map",
-    "main.7260a863.js.map": "/static/js/main.7260a863.js.map",
+    "main.8924c223.css.map": "/static/css/main.8924c223.css.map",
+    "main.81f6b5de.js.map": "/static/js/main.81f6b5de.js.map",
     "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bcf3b98f.css",
-    "static/js/main.7260a863.js"
+    "static/css/main.8924c223.css",
+    "static/js/main.81f6b5de.js"
   ]
 }
