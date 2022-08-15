@@ -1,4 +1,4 @@
-import { Container, Paper } from '@mui/material'
+import { Box, Container, Paper, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import ReactImageGallery from 'react-image-gallery'
 import { useParams } from 'react-router-dom'
@@ -22,29 +22,6 @@ const offerFromBackend = {
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolore. Molestias, rerum facilis provident nobis perspiciatis sapiente labore beatae architecto blanditiis tempore aperiam nam corrupti minus numquam ea, perferendis ducimus eum sunt ipsam mollitia tempora. Sed, voluptates eaque iusto culpa consequuntur sunt, minus omnis dolore, sint fuga vitae? Similique dolorum explicabo fugiat sed suscipit vitae, in saepe minima eos, consequuntur eligendi cum repellat. Ad corrupti, tenetur sunt distinctio reprehenderit ipsum architecto adipisci placeat, dolor eaque inventore beatae, similique illum quam accusamus. Tempora, dolorem nostrum explicabo hic tenetur at laborum dolore, harum dignissimos impedit ut? Praesentium repellendus amet officia eius dolore.',
 }
 
-const imagesTest = [
-  {
-    original: 'https://picsum.photos/id/1018/700/400/',
-    thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1015/800/500/',
-    thumbnail: 'https://picsum.photos/id/1015/800/500/',
-  },
-  {
-    original: 'https://picsum.photos/id/1019/2000/1400/',
-    thumbnail: 'https://picsum.photos/id/1019/1000/600/',
-  },
-  {
-    original: 'https://picsum.photos/id/1018/700/400/',
-    thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1015/800/500/',
-    thumbnail: 'https://picsum.photos/id/1015/800/500/',
-  },
-]
-
 export const OfferDetails = (): JSX.Element => {
   const [backendOfferFetchStatus, setBackendOfferFetchStatus] = useState<'fetching' | 'fetched'>(
     'fetching',
@@ -52,6 +29,12 @@ export const OfferDetails = (): JSX.Element => {
 
   const { id, images, offerTitle, city, province, price, squareMeters, type, rooms } =
     offerFromBackend
+  const mappedImagesForReactImageGallery = images.map((image) => {
+    return {
+      original: image,
+      thumbnail: image,
+    }
+  })
 
   const urlParams = useParams()
 
@@ -70,13 +53,16 @@ export const OfferDetails = (): JSX.Element => {
       <Container>
         {backendOfferFetchStatus === 'fetched' ? (
           <Paper>
-            <ReactImageGallery
-              showIndex={true}
-              autoPlay={true}
-              slideInterval={5000}
-              items={imagesTest}
-              additionalClass='image'
-            />
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Box sx={{ maxWidth: '1000px', padding: '20px 20px 10px 20px' }}>
+                <ReactImageGallery
+                  showIndex={true}
+                  autoPlay={true}
+                  slideInterval={5000}
+                  items={mappedImagesForReactImageGallery}
+                />
+              </Box>
+            </Box>
           </Paper>
         ) : (
           <p>Fetching</p>
