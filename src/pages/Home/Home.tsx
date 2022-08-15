@@ -18,7 +18,10 @@ import { Box } from '@mui/material'
 
 const offersFromBackend = [
   {
-    id: 1,
+    offerId: 1,
+    author: 'Joe Kowalski',
+    contactEmail: 'joekowalski@gmail.com',
+    contactPhone: '+48 389 391 832',
     images: [image11, image12, image13],
     offerTitle: 'Modern apartment, high standard',
     city: 'Warsaw',
@@ -31,7 +34,10 @@ const offersFromBackend = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolore. Molestias, rerum facilis provident nobis perspiciatis sapiente labore beatae architecto blanditiis tempore aperiam nam corrupti minus numquam ea, perferendis ducimus eum sunt ipsam mollitia tempora. Sed, voluptates eaque iusto culpa consequuntur sunt, minus omnis dolore, sint fuga vitae? Similique dolorum explicabo fugiat sed suscipit vitae, in saepe minima eos, consequuntur eligendi cum repellat. Ad corrupti, tenetur sunt distinctio reprehenderit ipsum architecto adipisci placeat, dolor eaque inventore beatae, similique illum quam accusamus. Tempora, dolorem nostrum explicabo hic tenetur at laborum dolore, harum dignissimos impedit ut? Praesentium repellendus amet officia eius dolore.',
   },
   {
-    id: 2,
+    offerId: 2,
+    author: 'Cristine Noi',
+    contactEmail: 'cristinenoi@gmail.com',
+    contactPhone: '+48 547 645 582',
     images: [image21, image22, image23],
     offerTitle: 'Spacious 3-room apartment, Warsow - great location',
     city: 'Warsaw',
@@ -44,7 +50,10 @@ const offersFromBackend = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolore. Molestias, rerum facilis provident nobis perspiciatis sapiente labore beatae architecto blanditiis tempore aperiam nam corrupti minus numquam ea, perferendis ducimus eum sunt ipsam mollitia tempora. Sed, voluptates eaque iusto culpa consequuntur sunt, minus omnis dolore, sint fuga vitae? Similique dolorum explicabo fugiat sed suscipit vitae, in saepe minima eos, consequuntur eligendi cum repellat. Ad corrupti, tenetur sunt distinctio reprehenderit ipsum architecto adipisci placeat, dolor eaque inventore beatae, similique illum quam accusamus. Tempora, dolorem nostrum explicabo hic tenetur at laborum dolore, harum dignissimos impedit ut? Praesentium repellendus amet officia eius dolore.',
   },
   {
-    id: 3,
+    offerId: 3,
+    author: 'Bob Bobson',
+    contactEmail: 'bob.bobson2@gmail.com',
+    contactPhone: '+48 264 754 119',
     images: [image31, image32, image33],
     offerTitle: 'I am renting a 2-room flat - available immediately!',
     city: 'Kraków',

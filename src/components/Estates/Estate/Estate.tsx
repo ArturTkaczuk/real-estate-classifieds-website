@@ -5,7 +5,7 @@ import styles from './Estate.module.css'
 
 export const Estate = (props: EstateProps): JSX.Element => {
   const navigate = useNavigate()
-  const { id, images, offerTitle, city, province, price, squareMeters, type, rooms } = props
+  const { offerId, images, offerTitle, city, province, price, squareMeters, type, rooms } = props
 
   function numberWithSpaces(x: number) {
     return Math.round(x)
@@ -15,7 +15,7 @@ export const Estate = (props: EstateProps): JSX.Element => {
 
   return (
     <Paper
-      onClick={() => navigate(`offers/${id}`)}
+      onClick={() => navigate(`offers/${offerId}`)}
       elevation={4}
       sx={{ cursor: 'pointer', marginBottom: '10px' }}
     >

@@ -19,9 +19,13 @@ import image12 from '../../assets/images/offer1-2.jpg'
 import image13 from '../../assets/images/offer1-3.jpg'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
+import { EstateProps } from '../../types'
 
-const offerFromBackend = {
-  id: 1,
+const offerFromBackend: EstateProps = {
+  offerId: 1,
+  author: 'Joe Kowalski',
+  contactEmail: 'Joe.Kowalski@gmail.com',
+  contactPhone: '+48 389 391 832',
   images: [image11, image12, image13],
   offerTitle: 'Modern apartment, high standard',
   city: 'Warsaw',
@@ -39,8 +43,20 @@ export const OfferDetails = (): JSX.Element => {
     'fetching',
   )
 
-  const { id, images, offerTitle, city, province, price, squareMeters, type, rooms } =
-    offerFromBackend
+  const {
+    offerId,
+    author,
+    contactEmail,
+    contactPhone,
+    images,
+    offerTitle,
+    city,
+    province,
+    price,
+    squareMeters,
+    type,
+    rooms,
+  } = offerFromBackend
   const mappedImagesForReactImageGallery = images.map((image) => {
     return {
       original: image,
@@ -143,8 +159,9 @@ export const OfferDetails = (): JSX.Element => {
             <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
               Contact
             </Typography>
-            <Typography>Name: Joe Kowalski</Typography>
+            <Typography sx={{ fontWeight: 'bold', fontSize: '1.2rem' }}>Joe Kowalski</Typography>
             <Typography>Email: Joe.Kowalski@gmail.com</Typography>
+            <Typography>Phone number: +48 389 391 832</Typography>
           </Paper>
         ) : (
           <p>Fetching</p>
