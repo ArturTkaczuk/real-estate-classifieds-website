@@ -1,0 +1,7 @@
+.image-gallery-thumbnails-container {
+  cursor: auto !important;
+}
+
+.image-gallery-thumbnail-image {
+  cursor: pointer !important;
+}

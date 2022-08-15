@@ -12,12 +12,13 @@ import {
 import { useEffect, useState } from 'react'
 import ReactImageGallery from 'react-image-gallery'
 import { useParams } from 'react-router-dom'
+import { EstateProps } from '../../types'
 import image21 from '../../assets/images/offer2-1.jpg'
 import image22 from '../../assets/images/offer2-2.jpg'
 import image23 from '../../assets/images/offer2-3.jpg'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
-import { EstateProps } from '../../types'
+import './Gallery.css'
 
 const offerFromBackend: EstateProps = {
   offerId: 2,
