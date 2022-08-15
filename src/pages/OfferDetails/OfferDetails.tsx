@@ -19,6 +19,7 @@ import image23 from '../../assets/images/offer2-3.jpg'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 import './Gallery.css'
+import { addSpaceBetweenNumbers } from '../../utils/addSpaceBetweenNumbers'
 
 const offerFromBackend: EstateProps = {
   offerId: 2,
@@ -100,7 +101,7 @@ export const OfferDetails = (): JSX.Element => {
                 <TableBody>
                   <TableRow>
                     <TableCell>Price:</TableCell>
-                    <TableCell>{price} PLN</TableCell>
+                    <TableCell>{addSpaceBetweenNumbers(price)} PLN</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Area:</TableCell>
