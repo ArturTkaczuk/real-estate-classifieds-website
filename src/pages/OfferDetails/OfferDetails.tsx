@@ -52,17 +52,19 @@ export const OfferDetails = (): JSX.Element => {
     <>
       <Container>
         {backendOfferFetchStatus === 'fetched' ? (
-          <Paper>
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Box sx={{ maxWidth: '1000px', padding: '20px 20px 10px 20px' }}>
-                <ReactImageGallery
-                  showIndex={true}
-                  autoPlay={true}
-                  slideInterval={5000}
-                  items={mappedImagesForReactImageGallery}
-                />
-              </Box>
-            </Box>
+          <Paper sx={{ padding: '20px 20px 10px 20px', marginTop: '10px' }}>
+            <Typography component='h2' variant='h4' sx={{ marginBottom: '10px' }}>
+              {offerTitle}
+            </Typography>
+            <ReactImageGallery
+              showIndex={true}
+              autoPlay={true}
+              slideInterval={5000}
+              items={mappedImagesForReactImageGallery}
+            />
+            <Typography component='h2' variant='h4' sx={{ margin: '10px 0' }}>
+              Offer Details
+            </Typography>
           </Paper>
         ) : (
           <p>Fetching</p>
