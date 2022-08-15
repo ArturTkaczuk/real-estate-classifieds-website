@@ -76,8 +76,8 @@ export const OfferDetails = (): JSX.Element => {
             <Typography component='h2' variant='h4' sx={{ margin: '10px 0' }}>
               Offer Details
             </Typography>
-            <TableContainer sx={{ maxWidth: '500px' }}>
-              <Table aria-label='simple table'>
+            <Box sx={{ display: 'flex', gap: '50px', flexWrap: 'wrap' }}>
+              <Table sx={{ maxWidth: '500px', height: 'fit-content' }} aria-label='simple table'>
                 <TableHead>
                   <TableRow>
                     <TableCell sx={{ fontSize: '1.2rem' }}>Basic information</TableCell>
@@ -99,7 +99,7 @@ export const OfferDetails = (): JSX.Element => {
                   </TableRow>
                 </TableBody>
               </Table>
-              <Table aria-label='simple table'>
+              <Table sx={{ maxWidth: '500px', height: 'fit-content' }} aria-label='simple table'>
                 <TableHead>
                   <TableRow>
                     <TableCell sx={{ fontSize: '1.2rem' }}>Location</TableCell>
@@ -117,7 +117,7 @@ export const OfferDetails = (): JSX.Element => {
                   </TableRow>
                 </TableBody>
               </Table>
-            </TableContainer>
+            </Box>
           </Paper>
         ) : (
           <p>Fetching</p>
