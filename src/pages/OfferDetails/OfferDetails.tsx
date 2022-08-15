@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  Divider,
   Paper,
   Table,
   TableBody,
@@ -63,17 +64,16 @@ export const OfferDetails = (): JSX.Element => {
     <>
       <Container>
         {backendOfferFetchStatus === 'fetched' ? (
-          <Paper sx={{ padding: '20px 20px 10px 20px', marginTop: '10px' }}>
+          <Paper sx={{ padding: '20px 20px 50px 20px', marginTop: '10px' }}>
             <Typography component='h2' variant='h4' sx={{ marginBottom: '10px' }}>
               {offerTitle}
             </Typography>
             <ReactImageGallery
               showIndex={true}
-              autoPlay={true}
               slideInterval={5000}
               items={mappedImagesForReactImageGallery}
             />
-            <Typography component='h2' variant='h4' sx={{ margin: '10px 0' }}>
+            <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
               Offer Details
             </Typography>
             <Box sx={{ display: 'flex', gap: '50px', flexWrap: 'wrap' }}>
@@ -118,6 +118,33 @@ export const OfferDetails = (): JSX.Element => {
                 </TableBody>
               </Table>
             </Box>
+            <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
+              Description
+            </Typography>
+            <Typography>
+              The apartment is located on the top floor of a building with an elevator. The
+              apartment has windows on 3 sides of the world - very nicely lit. There are only two
+              other apartments on the first floor. The terrace faces west and south and has no
+              neighbor. The apartment is fully finished, equipped with an air-conditioning system,
+              electric sunshade on the terrace, roof over the balcony, all built-in household
+              appliances. Finishing the apartment for yourself - inhabited from the beginning and
+              has never been rented. All furniture made to measure with high-class fittings. Heating
+              and hot water from the MPEC municipal network - low maintenance costs. Housing estate
+              from 2015 with monitoring. The estate is fenced, the gate is opened with a remote
+              control. Within the estate there are bicycle stands and a playground. The apartment is
+              located at ul. Grzegórzecka 77 in close proximity to the Variete Theater and the
+              Vistula boulevards. To the tram stop, it is less than 5 minutes on foot. Nearby, there
+              are service premises, shops such as Żabka or Biedronka, as well as nurseries, a
+              hairdresser, a kindergarten, a bakery, a medical center, etc. An ideal place for
+              people who want to live in a well-connected place, in the city center, yet in peace
+              and quiet. The flat in full ownership - perpetual usufruct has been fully purchased.
+              You can buy one or two parking spaces in the underground garage and a storage room.
+            </Typography>
+            <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
+              Contact
+            </Typography>
+            <Typography>Name: Joe Kowalski</Typography>
+            <Typography>Email: Joe.Kowalski@gmail.com</Typography>
           </Paper>
         ) : (
           <p>Fetching</p>
