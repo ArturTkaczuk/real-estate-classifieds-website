@@ -1,17 +1,12 @@
 import { Box, Paper, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { EstateProps } from '../../../types'
+import { addSpaceBetweenNumbers } from '../../../utils/addSpaceBetweenNumbers'
 import styles from './Estate.module.css'
 
 export const Estate = (props: EstateProps): JSX.Element => {
   const navigate = useNavigate()
   const { offerId, images, offerTitle, city, province, price, squareMeters, type, rooms } = props
-
-  function numberWithSpaces(x: number) {
-    return Math.round(x)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-  }
 
   return (
     <Paper
@@ -42,11 +37,11 @@ export const Estate = (props: EstateProps): JSX.Element => {
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
               <Typography sx={{ fontSize: '1.2rem' }}>
-                {numberWithSpaces(price)} {type === 'sale' ? 'PLN' : 'PLN/mth'}
+                {addSpaceBetweenNumbers(price)} {type === 'sale' ? 'PLN' : 'PLN/mth'}
               </Typography>
               {type === 'sale' && (
                 <Typography>
-                  {numberWithSpaces(price / squareMeters)} PLN/m<sup>2</sup>
+                  {addSpaceBetweenNumbers(price / squareMeters)} PLN/m<sup>2</sup>
                 </Typography>
               )}
             </Box>
