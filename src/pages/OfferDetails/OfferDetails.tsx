@@ -1,12 +1,10 @@
 import {
   Box,
   Container,
-  Divider,
   Paper,
   Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
   Typography,
@@ -44,7 +42,6 @@ export const OfferDetails = (): JSX.Element => {
   )
 
   const {
-    offerId,
     authorName,
     contactEmail,
     contactPhone,
@@ -54,7 +51,6 @@ export const OfferDetails = (): JSX.Element => {
     province,
     price,
     squareMeters,
-    type,
     rooms,
   } = offerFromBackend
   const mappedImagesForReactImageGallery = images.map((image) => {
