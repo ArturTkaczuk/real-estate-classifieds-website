@@ -14,26 +14,26 @@ import {
 import { useEffect, useState } from 'react'
 import ReactImageGallery from 'react-image-gallery'
 import { useParams } from 'react-router-dom'
-import image11 from '../../assets/images/offer1-1.jpg'
-import image12 from '../../assets/images/offer1-2.jpg'
-import image13 from '../../assets/images/offer1-3.jpg'
+import image21 from '../../assets/images/offer2-1.jpg'
+import image22 from '../../assets/images/offer2-2.jpg'
+import image23 from '../../assets/images/offer2-3.jpg'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 import { EstateProps } from '../../types'
 
 const offerFromBackend: EstateProps = {
-  offerId: 1,
-  author: 'Joe Kowalski',
-  contactEmail: 'Joe.Kowalski@gmail.com',
-  contactPhone: '+48 389 391 832',
-  images: [image11, image12, image13],
-  offerTitle: 'Modern apartment, high standard',
+  offerId: 2,
+  authorName: 'Cristine Noi',
+  contactEmail: 'cristinenoi@gmail.com',
+  contactPhone: '+48 547 645 582',
+  images: [image21, image22, image23],
+  offerTitle: 'Spacious 3-room apartment, Warsow - great location',
   city: 'Warsaw',
   province: 'Masovian',
-  price: 470_000,
-  squareMeters: 78,
+  price: 607_000,
+  squareMeters: 93,
   type: 'sale',
-  rooms: 2,
+  rooms: 3,
   description:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolore. Molestias, rerum facilis provident nobis perspiciatis sapiente labore beatae architecto blanditiis tempore aperiam nam corrupti minus numquam ea, perferendis ducimus eum sunt ipsam mollitia tempora. Sed, voluptates eaque iusto culpa consequuntur sunt, minus omnis dolore, sint fuga vitae? Similique dolorum explicabo fugiat sed suscipit vitae, in saepe minima eos, consequuntur eligendi cum repellat. Ad corrupti, tenetur sunt distinctio reprehenderit ipsum architecto adipisci placeat, dolor eaque inventore beatae, similique illum quam accusamus. Tempora, dolorem nostrum explicabo hic tenetur at laborum dolore, harum dignissimos impedit ut? Praesentium repellendus amet officia eius dolore.',
 }
@@ -45,7 +45,7 @@ export const OfferDetails = (): JSX.Element => {
 
   const {
     offerId,
-    author,
+    authorName,
     contactEmail,
     contactPhone,
     images,
@@ -103,15 +103,17 @@ export const OfferDetails = (): JSX.Element => {
                 <TableBody>
                   <TableRow>
                     <TableCell>Price:</TableCell>
-                    <TableCell>2000PLN</TableCell>
+                    <TableCell>{price} PLN</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Area:</TableCell>
-                    <TableCell>60 sqm</TableCell>
+                    <TableCell>
+                      {squareMeters} m<sup>2</sup>
+                    </TableCell>
                   </TableRow>
                   <TableRow sx={{ 'td, th': { border: 0 } }}>
                     <TableCell>Rooms:</TableCell>
-                    <TableCell>3</TableCell>
+                    <TableCell>{rooms}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -125,11 +127,11 @@ export const OfferDetails = (): JSX.Element => {
                 <TableBody>
                   <TableRow>
                     <TableCell>City:</TableCell>
-                    <TableCell>Kraków</TableCell>
+                    <TableCell>{city}</TableCell>
                   </TableRow>
                   <TableRow sx={{ 'td, th': { border: 0 } }}>
                     <TableCell>Province:</TableCell>
-                    <TableCell>małopolskie</TableCell>
+                    <TableCell>{province}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -159,9 +161,9 @@ export const OfferDetails = (): JSX.Element => {
             <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
               Contact
             </Typography>
-            <Typography sx={{ fontWeight: 'bold', fontSize: '1.2rem' }}>Joe Kowalski</Typography>
-            <Typography>Email: Joe.Kowalski@gmail.com</Typography>
-            <Typography>Phone number: +48 389 391 832</Typography>
+            <Typography sx={{ fontWeight: 'bold', fontSize: '1.2rem' }}>{authorName}</Typography>
+            <Typography>Email: {contactEmail}</Typography>
+            <Typography>Phone number: {contactPhone}</Typography>
           </Paper>
         ) : (
           <p>Fetching</p>

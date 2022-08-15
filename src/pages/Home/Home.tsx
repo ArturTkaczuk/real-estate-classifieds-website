@@ -19,7 +19,7 @@ import { Box } from '@mui/material'
 const offersFromBackend = [
   {
     offerId: 1,
-    author: 'Joe Kowalski',
+    authorName: 'Joe Kowalski',
     contactEmail: 'joekowalski@gmail.com',
     contactPhone: '+48 389 391 832',
     images: [image11, image12, image13],
@@ -35,7 +35,7 @@ const offersFromBackend = [
   },
   {
     offerId: 2,
-    author: 'Cristine Noi',
+    authorName: 'Cristine Noi',
     contactEmail: 'cristinenoi@gmail.com',
     contactPhone: '+48 547 645 582',
     images: [image21, image22, image23],
@@ -51,7 +51,7 @@ const offersFromBackend = [
   },
   {
     offerId: 3,
-    author: 'Bob Bobson',
+    authorName: 'Bob Bobson',
     contactEmail: 'bob.bobson2@gmail.com',
     contactPhone: '+48 264 754 119',
     images: [image31, image32, image33],

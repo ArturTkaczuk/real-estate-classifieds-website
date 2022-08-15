@@ -1,6 +1,6 @@
 export interface EstateProps {
   offerId: number
-  author: string
+  authorName: string
   contactEmail: string
   contactPhone: string
   images: string[]
