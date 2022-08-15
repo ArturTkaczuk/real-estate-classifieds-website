@@ -1,4 +1,15 @@
-import { Box, Container, Paper, Typography } from '@mui/material'
+import {
+  Box,
+  Container,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material'
 import { useEffect, useState } from 'react'
 import ReactImageGallery from 'react-image-gallery'
 import { useParams } from 'react-router-dom'
@@ -65,6 +76,48 @@ export const OfferDetails = (): JSX.Element => {
             <Typography component='h2' variant='h4' sx={{ margin: '10px 0' }}>
               Offer Details
             </Typography>
+            <TableContainer sx={{ maxWidth: '500px' }}>
+              <Table aria-label='simple table'>
+                <TableHead>
+                  <TableRow>
+                    <TableCell sx={{ fontSize: '1.2rem' }}>Basic information</TableCell>
+                    <TableCell></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Price:</TableCell>
+                    <TableCell>2000PLN</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Area:</TableCell>
+                    <TableCell>60 sqm</TableCell>
+                  </TableRow>
+                  <TableRow sx={{ 'td, th': { border: 0 } }}>
+                    <TableCell>Rooms:</TableCell>
+                    <TableCell>3</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+              <Table aria-label='simple table'>
+                <TableHead>
+                  <TableRow>
+                    <TableCell sx={{ fontSize: '1.2rem' }}>Location</TableCell>
+                    <TableCell></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>City:</TableCell>
+                    <TableCell>Kraków</TableCell>
+                  </TableRow>
+                  <TableRow sx={{ 'td, th': { border: 0 } }}>
+                    <TableCell>Province:</TableCell>
+                    <TableCell>małopolskie</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Paper>
         ) : (
           <p>Fetching</p>
