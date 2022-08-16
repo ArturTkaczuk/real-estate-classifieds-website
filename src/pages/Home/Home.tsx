@@ -14,7 +14,8 @@ import image31 from '../../assets/images/offer3-1.jpg'
 import image32 from '../../assets/images/offer3-2.jpg'
 import image33 from '../../assets/images/offer3-3.jpg'
 
-import { Box, Container } from '@mui/material'
+import { Container } from '@mui/material'
+import { AllOffersText } from './AllOffersText/AllOffersText'
 
 const offersFromBackend = [
   {
@@ -96,6 +97,7 @@ export const Home = (): JSX.Element => {
     <Container>
       <HeadingPaper />
       <SearchFilter searchHandler={searchHandler} />
+      <AllOffersText />
       <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
     </Container>
   )
