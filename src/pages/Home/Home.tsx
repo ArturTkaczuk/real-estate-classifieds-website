@@ -14,7 +14,7 @@ import image31 from '../../assets/images/offer3-1.jpg'
 import image32 from '../../assets/images/offer3-2.jpg'
 import image33 from '../../assets/images/offer3-3.jpg'
 
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 
 const offersFromBackend = [
   {
@@ -93,10 +93,10 @@ export const Home = (): JSX.Element => {
   }
 
   return (
-    <Box>
+    <Container>
       <HeadingPaper />
       <SearchFilter searchHandler={searchHandler} />
       <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
-    </Box>
+    </Container>
   )
 }

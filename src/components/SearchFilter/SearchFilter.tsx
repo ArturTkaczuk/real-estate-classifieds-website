@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Paper, Typography } from '@mui/material'
+import { Box, Button, Grid, Paper, Typography } from '@mui/material'
 import { useContext, useState } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
 import { FilterSettings } from '../../types'
@@ -28,7 +28,7 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
   const themeColor = useContext(ThemeContext)
 
   return (
-    <Container sx={{ marginBottom: '100px' }}>
+    <Box sx={{ marginBottom: '100px' }}>
       <Paper sx={{ padding: '0 20px 20px 20px' }}>
         <Grid container spacing={2}>
           <Grid item xs={6} lg={2}>
@@ -113,6 +113,6 @@ export const SearchFilter = ({ searchHandler }: SearchFilterProps): JSX.Element 
           {/* <p>{JSON.stringify(filterSettings)}</p> */}
         </Grid>
       </Paper>
-    </Container>
+    </Box>
   )
 }

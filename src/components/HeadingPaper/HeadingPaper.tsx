@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles'
-import { Container, Paper, Typography, experimental_sx as sx } from '@mui/material'
+import { Container, Paper, Typography, experimental_sx as sx, Box } from '@mui/material'
 
 const PaperWrapper = styled(Paper)(
   sx({
@@ -12,12 +12,12 @@ const PaperWrapper = styled(Paper)(
 
 export const HeadingPaper = (): JSX.Element => {
   return (
-    <Container>
+    <Box>
       <PaperWrapper elevation={4}>
         <Typography component='h1' variant='h3'>
           The best real estate classifieds platform in Poland
         </Typography>
       </PaperWrapper>
-    </Container>
+    </Box>
   )
 }
