@@ -21,6 +21,8 @@ import image23 from '../../assets/images/offer2-3.jpg'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import './Gallery.css'
 import { addSpaceBetweenNumbers } from '../../utils/addSpaceBetweenNumbers'
+import { OfferDetailsFetching } from '../../components/UI/Fetching/OfferDetailsFetching'
+import { Tables } from './InputElements/Tables'
 
 const offerFromBackend: EstateProps = {
   offerId: 2,
@@ -55,6 +57,7 @@ export const OfferDetails = (): JSX.Element => {
     price,
     squareMeters,
     rooms,
+    description,
   } = offerFromBackend
   const mappedImagesForReactImageGallery = images.map((image) => {
     return {
@@ -79,7 +82,9 @@ export const OfferDetails = (): JSX.Element => {
     <>
       <Container>
         <Paper sx={{ padding: { xs: '20px 15px 50px', md: '20px 40px 50px' }, marginTop: '10px' }}>
-          {backendOfferFetchStatus === 'fetched' ? (
+          {backendOfferFetchStatus === 'fetching' ? (
+            <OfferDetailsFetching />
+          ) : (
             <>
               <Typography component='h2' variant='h4' sx={{ marginBottom: '10px' }}>
                 {offerTitle}
@@ -89,85 +94,23 @@ export const OfferDetails = (): JSX.Element => {
                 slideInterval={2500}
                 items={mappedImagesForReactImageGallery}
               />
+
               <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
                 Offer Details
               </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '20px 50px' }}>
-                <Table
-                  sx={{
-                    width: '500px',
-                    maxWidth: '500px',
-                    height: 'fit-content',
-                  }}
-                  aria-label='simple table'
-                >
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ fontSize: '1.2rem' }}>Basic information</TableCell>
-                      <TableCell></TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>Price:</TableCell>
-                      <TableCell sx={{ width: '150px' }}>
-                        {addSpaceBetweenNumbers(price)} PLN
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Area:</TableCell>
-                      <TableCell sx={{ width: '150px' }}>
-                        {squareMeters} m<sup>2</sup>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow sx={{ 'td, th': { border: 0 } }}>
-                      <TableCell>Rooms:</TableCell>
-                      <TableCell sx={{ width: '150px' }}>{rooms}</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-                <Table sx={{ maxWidth: '500px', height: 'fit-content' }} aria-label='simple table'>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ fontSize: '1.2rem' }}>Location</TableCell>
-                      <TableCell sx={{ width: '150px' }}></TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>City:</TableCell>
-                      <TableCell sx={{ width: '150px' }}>{city}</TableCell>
-                    </TableRow>
-                    <TableRow sx={{ 'td, th': { border: 0 } }}>
-                      <TableCell>Province:</TableCell>
-                      <TableCell sx={{ width: '150px' }}>{province}</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </Box>
+              <Tables
+                price={price}
+                squareMeters={squareMeters}
+                rooms={rooms}
+                city={city}
+                province={province}
+              />
+
               <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
                 Description
               </Typography>
-              <Typography>
-                The apartment is located on the top floor of a building with an elevator. The
-                apartment has windows on 3 sides of the world - very nicely lit. There are only two
-                other apartments on the first floor. The terrace faces west and south and has no
-                neighbor. The apartment is fully finished, equipped with an air-conditioning system,
-                electric sunshade on the terrace, roof over the balcony, all built-in household
-                appliances. Finishing the apartment for yourself - inhabited from the beginning and
-                has never been rented. All furniture made to measure with high-class fittings.
-                Heating and hot water from the MPEC municipal network - low maintenance costs.
-                Housing estate from 2015 with monitoring. The estate is fenced, the gate is opened
-                with a remote control. Within the estate there are bicycle stands and a playground.
-                The apartment is located at ul. Grzegórzecka 77 in close proximity to the Variete
-                Theater and the Vistula boulevards. To the tram stop, it is less than 5 minutes on
-                foot. Nearby, there are service premises, shops such as Żabka or Biedronka, as well
-                as nurseries, a hairdresser, a kindergarten, a bakery, a medical center, etc. An
-                ideal place for people who want to live in a well-connected place, in the city
-                center, yet in peace and quiet. The flat in full ownership - perpetual usufruct has
-                been fully purchased. You can buy one or two parking spaces in the underground
-                garage and a storage room.
-              </Typography>
+              <Typography>{description}</Typography>
+
               <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
                 Contact
               </Typography>
@@ -175,48 +118,6 @@ export const OfferDetails = (): JSX.Element => {
               <Typography>Email: {contactEmail}</Typography>
               <Typography>Phone number: {contactPhone}</Typography>
             </>
-          ) : (
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px' }} />
-              <Skeleton
-                animation='wave'
-                variant='rectangular'
-                sx={{ width: '100%', height: '35vw' }}
-              />
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '20px 50px' }}>
-                <Skeleton
-                  animation='wave'
-                  variant='rectangular'
-                  sx={{
-                    width: '500px',
-                    maxWidth: '500px',
-                    height: '230px',
-                  }}
-                />
-                <Skeleton
-                  animation='wave'
-                  variant='rectangular'
-                  sx={{
-                    width: '500px',
-                    maxWidth: '500px',
-                    height: '170px',
-                  }}
-                />
-              </Box>
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
-              <Skeleton
-                animation='wave'
-                variant='rectangular'
-                sx={{ width: '100%', height: '300px' }}
-              />
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
-              <Skeleton
-                animation='wave'
-                variant='rectangular'
-                sx={{ width: '200px', height: '100px' }}
-              />
-            </Box>
           )}
         </Paper>
       </Container>

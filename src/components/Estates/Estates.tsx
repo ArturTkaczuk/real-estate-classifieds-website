@@ -1,6 +1,6 @@
 import { Container, Paper, Typography } from '@mui/material'
 import { EstateProps } from '../../types'
-import { OffersLoading } from '../UI/LoadingOffers/OffersLoading'
+import { OffersFetching } from '../UI/Fetching/OffersFetching'
 import { Estate } from './Estate/Estate'
 
 interface EstatesProps {
@@ -18,7 +18,7 @@ export const Estates = ({ offers, backendOffersFetchStatus }: EstatesProps): JSX
       </Paper>
 
       {backendOffersFetchStatus === 'fetching' ? (
-        <OffersLoading />
+        <OffersFetching />
       ) : (
         offers.map((offer, index) => {
           return <Estate key={index} {...offer} />

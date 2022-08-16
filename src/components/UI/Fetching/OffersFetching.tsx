@@ -2,7 +2,7 @@ import { CircularProgress, Paper, Typography } from '@mui/material'
 import { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 
-export const OffersLoading = (): JSX.Element => {
+export const OffersFetching = (): JSX.Element => {
   const themeColor = useContext(ThemeContext)
 
   return (
