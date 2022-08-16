@@ -33,6 +33,21 @@ export const OfferDetails = (): JSX.Element => {
   const [backendOfferFetchStatus, setBackendOfferFetchStatus] = useState<'fetching' | 'fetched'>(
     'fetching',
   )
+  const [fetchedBackendOffer, setFetchedBackendOffer] = useState<EstateProps>({
+    offerId: 0,
+    authorName: '',
+    contactEmail: '',
+    contactPhone: '',
+    images: [],
+    offerTitle: '',
+    city: '',
+    province: '',
+    price: 0,
+    squareMeters: 0,
+    type: '',
+    rooms: 0,
+    description: '',
+  })
 
   const {
     authorName,
@@ -46,7 +61,8 @@ export const OfferDetails = (): JSX.Element => {
     squareMeters,
     rooms,
     description,
-  } = offerFromBackend
+  } = fetchedBackendOffer
+
   const mappedImagesForReactImageGallery = images.map((image) => {
     return {
       original: image,
@@ -60,6 +76,7 @@ export const OfferDetails = (): JSX.Element => {
     const fetchOfferOnAppLoad = async () => {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
+      setFetchedBackendOffer(offerFromBackend)
       setBackendOfferFetchStatus('fetched')
     }
 
