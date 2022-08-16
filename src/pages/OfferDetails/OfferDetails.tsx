@@ -1,15 +1,4 @@
-import {
-  Box,
-  Container,
-  Paper,
-  Skeleton,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-} from '@mui/material'
+import { Container, Paper, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import ReactImageGallery from 'react-image-gallery'
 import { useParams } from 'react-router-dom'
@@ -20,7 +9,6 @@ import image23 from '../../assets/images/offer2-3.jpg'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 import './Gallery.css'
-import { addSpaceBetweenNumbers } from '../../utils/addSpaceBetweenNumbers'
 import { OfferDetailsFetching } from '../../components/UI/Fetching/OfferDetailsFetching'
 import { Tables } from './InputElements/Tables'
 
