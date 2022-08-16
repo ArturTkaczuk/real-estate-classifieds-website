@@ -184,7 +184,7 @@ export const OfferDetails = (): JSX.Element => {
                 sx={{ width: '100%', height: '35vw' }}
               />
               <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
-              <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '20px 50px' }}>
                 <Skeleton
                   animation='wave'
                   variant='rectangular'
@@ -192,7 +192,6 @@ export const OfferDetails = (): JSX.Element => {
                     width: '500px',
                     maxWidth: '500px',
                     height: '230px',
-                    margin: '0 50px 10px 0',
                   }}
                 />
                 <Skeleton
@@ -201,7 +200,7 @@ export const OfferDetails = (): JSX.Element => {
                   sx={{
                     width: '500px',
                     maxWidth: '500px',
-                    height: '230px',
+                    height: '170px',
                   }}
                 />
               </Box>
