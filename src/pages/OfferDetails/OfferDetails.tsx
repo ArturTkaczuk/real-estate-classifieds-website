@@ -86,7 +86,7 @@ export const OfferDetails = (): JSX.Element => {
               </Typography>
               <ReactImageGallery
                 showIndex={true}
-                slideInterval={5000}
+                slideInterval={2500}
                 items={mappedImagesForReactImageGallery}
               />
               <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
