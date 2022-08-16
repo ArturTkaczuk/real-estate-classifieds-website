@@ -90,8 +90,11 @@ export const OfferDetails = (): JSX.Element => {
             <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
               Offer Details
             </Typography>
-            <Box sx={{ display: 'flex', gap: '50px', flexWrap: 'wrap' }}>
-              <Table sx={{ maxWidth: '500px', height: 'fit-content' }} aria-label='simple table'>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+              <Table
+                sx={{ maxWidth: '500px', height: 'fit-content', margin: '0 50px 10px 0' }}
+                aria-label='simple table'
+              >
                 <TableHead>
                   <TableRow>
                     <TableCell sx={{ fontSize: '1.2rem' }}>Basic information</TableCell>
