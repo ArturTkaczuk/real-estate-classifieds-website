@@ -78,7 +78,7 @@ export const OfferDetails = (): JSX.Element => {
   return (
     <>
       <Container>
-        <Paper sx={{ padding: '20px 40px 50px', marginTop: '10px' }}>
+        <Paper sx={{ padding: { xs: '20px 15px 50px', md: '20px 40px 50px' }, marginTop: '10px' }}>
           {backendOfferFetchStatus === 'fetched' ? (
             <>
               <Typography component='h2' variant='h4' sx={{ marginBottom: '10px' }}>
@@ -92,9 +92,13 @@ export const OfferDetails = (): JSX.Element => {
               <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
                 Offer Details
               </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '20px 50px' }}>
                 <Table
-                  sx={{ maxWidth: '500px', height: 'fit-content', margin: '0 50px 10px 0' }}
+                  sx={{
+                    width: '500px',
+                    maxWidth: '500px',
+                    height: 'fit-content',
+                  }}
                   aria-label='simple table'
                 >
                   <TableHead>
@@ -106,17 +110,19 @@ export const OfferDetails = (): JSX.Element => {
                   <TableBody>
                     <TableRow>
                       <TableCell>Price:</TableCell>
-                      <TableCell>{addSpaceBetweenNumbers(price)} PLN</TableCell>
+                      <TableCell sx={{ width: '150px' }}>
+                        {addSpaceBetweenNumbers(price)} PLN
+                      </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>Area:</TableCell>
-                      <TableCell>
+                      <TableCell sx={{ width: '150px' }}>
                         {squareMeters} m<sup>2</sup>
                       </TableCell>
                     </TableRow>
                     <TableRow sx={{ 'td, th': { border: 0 } }}>
                       <TableCell>Rooms:</TableCell>
-                      <TableCell>{rooms}</TableCell>
+                      <TableCell sx={{ width: '150px' }}>{rooms}</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -124,17 +130,17 @@ export const OfferDetails = (): JSX.Element => {
                   <TableHead>
                     <TableRow>
                       <TableCell sx={{ fontSize: '1.2rem' }}>Location</TableCell>
-                      <TableCell></TableCell>
+                      <TableCell sx={{ width: '150px' }}></TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     <TableRow>
                       <TableCell>City:</TableCell>
-                      <TableCell>{city}</TableCell>
+                      <TableCell sx={{ width: '150px' }}>{city}</TableCell>
                     </TableRow>
                     <TableRow sx={{ 'td, th': { border: 0 } }}>
                       <TableCell>Province:</TableCell>
-                      <TableCell>{province}</TableCell>
+                      <TableCell sx={{ width: '150px' }}>{province}</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -177,8 +183,8 @@ export const OfferDetails = (): JSX.Element => {
                 variant='rectangular'
                 sx={{ width: '100%', height: '35vw' }}
               />
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '20px', width: '200px' }} />
-              <Box sx={{ display: 'flex' }}>
+              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
+              <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                 <Skeleton
                   animation='wave'
                   variant='rectangular'
@@ -199,17 +205,17 @@ export const OfferDetails = (): JSX.Element => {
                   }}
                 />
               </Box>
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '20px', width: '200px' }} />
+              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
               <Skeleton
                 animation='wave'
                 variant='rectangular'
                 sx={{ width: '100%', height: '300px' }}
               />
-              <Skeleton animation='wave' variant='text' sx={{ fontSize: '20px', width: '200px' }} />
+              <Skeleton animation='wave' variant='text' sx={{ fontSize: '34px', width: '200px' }} />
               <Skeleton
                 animation='wave'
                 variant='rectangular'
-                sx={{ width: '300px', height: '150px' }}
+                sx={{ width: '200px', height: '100px' }}
               />
             </Box>
           )}
