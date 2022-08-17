@@ -14,6 +14,7 @@ import { Tables } from './InputElements/Tables'
 
 const offerFromBackend: EstateProps = {
   offerId: 2,
+  date: 'Aug 16 2022 18:57:45 GMT+0200 (czas środkowoeuropejski letni)',
   authorName: 'Cristine Noi',
   contactEmail: 'cristinenoi@gmail.com',
   contactPhone: '+48 547 645 582',
@@ -35,6 +36,7 @@ export const OfferDetails = (): JSX.Element => {
   )
   const [fetchedBackendOffer, setFetchedBackendOffer] = useState<EstateProps>({
     offerId: 0,
+    date: '',
     authorName: '',
     contactEmail: '',
     contactPhone: '',

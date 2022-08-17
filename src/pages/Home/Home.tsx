@@ -27,9 +27,10 @@ import {
   Typography,
 } from '@mui/material'
 
-const offersFromBackend = [
+const offersFromBackend: EstateProps[] = [
   {
     offerId: 1,
+    date: 'Aug 17 2022 09:57:45 GMT+0200 (czas środkowoeuropejski letni)',
     authorName: 'Joe Kowalski',
     contactEmail: 'joekowalski@gmail.com',
     contactPhone: '+48 389 391 832',
@@ -46,6 +47,7 @@ const offersFromBackend = [
   },
   {
     offerId: 2,
+    date: 'Aug 16 2022 18:57:45 GMT+0200 (czas środkowoeuropejski letni)',
     authorName: 'Cristine Noi',
     contactEmail: 'cristinenoi@gmail.com',
     contactPhone: '+48 547 645 582',
@@ -62,6 +64,7 @@ const offersFromBackend = [
   },
   {
     offerId: 3,
+    date: 'Aug 17 2022 18:57:45 GMT+0200 (czas środkowoeuropejski letni)',
     authorName: 'Bob Bobson',
     contactEmail: 'bob.bobson2@gmail.com',
     contactPhone: '+48 264 754 119',
