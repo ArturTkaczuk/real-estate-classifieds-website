@@ -14,8 +14,16 @@ import image31 from '../../assets/images/offer3-1.jpg'
 import image32 from '../../assets/images/offer3-2.jpg'
 import image33 from '../../assets/images/offer3-3.jpg'
 
-import { Container } from '@mui/material'
-import { AllOffersText } from './AllOffersText/AllOffersText'
+import {
+  Box,
+  Container,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  Typography,
+} from '@mui/material'
 
 const offersFromBackend = [
   {
@@ -74,6 +82,7 @@ export const Home = (): JSX.Element => {
   const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<'fetching' | 'fetched'>(
     'fetching',
   )
+  const [sortBy, setSortBy] = useState<string>('priceLow')
 
   useEffect(() => {
     const fetchOffersOnAppLoad = async () => {
@@ -96,8 +105,43 @@ export const Home = (): JSX.Element => {
   return (
     <Container>
       <HeadingPaper />
+
       <SearchFilter searchHandler={searchHandler} />
-      <AllOffersText />
+
+      <Paper
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          marginBottom: '10px',
+          padding: '20px',
+          gap: '20px',
+        }}
+      >
+        <Typography sx={{ width: '100%', textAlign: 'center' }} variant='h4' component='h2'>
+          All offers:
+        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <Typography variant='h6' component='h3'>
+            Sort by:
+          </Typography>
+          <FormControl size='small'>
+            <Select
+              id='demo-simple-select'
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              autoWidth
+            >
+              <MenuItem value={'priceLow'}>Recent to Oldest</MenuItem>
+              <MenuItem value={20}>Oldest to Recent</MenuItem>
+              <MenuItem value={30}>Price: low to high</MenuItem>
+              <MenuItem value={40}>Price: high to low</MenuItem>
+              <MenuItem value={50}>Space: low to high</MenuItem>
+              <MenuItem value={60}>Space: high to low</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+      </Paper>
+
       <Estates offers={displayedOffers} backendOffersFetchStatus={backendOffersFetchStatus} />
     </Container>
   )
