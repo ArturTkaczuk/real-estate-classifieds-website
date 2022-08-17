@@ -23,6 +23,7 @@ import {
   MenuItem,
   Paper,
   Select,
+  SelectChangeEvent,
   Typography,
 } from '@mui/material'
 
@@ -112,6 +113,27 @@ export const Home = (): JSX.Element => {
     setDisplayedOffers(filteredOffers)
   }
 
+  const sortHandler = (e: SelectChangeEvent<SortValues>) => {
+    const selectedSortValue = e.target.value
+    setSortBy(selectedSortValue as SortValues)
+
+    let sortedOffers: EstateProps[] = []
+
+    switch (selectedSortValue) {
+      case SortValues.PRICE_LOW_TO_HIGH:
+        sortedOffers = displayedOffers.sort((a, b) => a.price - b.price)
+        break
+      case SortValues.PRICE_HIGH_TO_LOW:
+        sortedOffers = displayedOffers.sort((a, b) => b.price - a.price)
+        break
+
+      default:
+        break
+    }
+
+    setDisplayedOffers(sortedOffers)
+  }
+
   return (
     <Container>
       <HeadingPaper />
@@ -143,11 +165,15 @@ export const Home = (): JSX.Element => {
             <Select
               id='demo-simple-select'
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortValues)}
+              onChange={(e) => sortHandler(e)}
               autoWidth
             >
-              <MenuItem value={SortValues.RECENT_TO_OLDEST}>Recent to Oldest</MenuItem>
-              <MenuItem value={SortValues.OLDEST_TO_RECENT}>Oldest to Recent</MenuItem>
+              <MenuItem disabled value={SortValues.RECENT_TO_OLDEST}>
+                Recent to Oldest
+              </MenuItem>
+              <MenuItem disabled value={SortValues.OLDEST_TO_RECENT}>
+                Oldest to Recent
+              </MenuItem>
 
               <Divider sx={{ margin: '0 !important' }} />
 
