@@ -62,6 +62,7 @@ const offersFromBackend: EstateProps[] = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolore. Molestias, rerum facilis provident nobis perspiciatis sapiente labore beatae architecto blanditiis tempore aperiam nam corrupti minus numquam ea, perferendis ducimus eum sunt ipsam mollitia tempora. Sed, voluptates eaque iusto culpa consequuntur sunt, minus omnis dolore, sint fuga vitae? Similique dolorum explicabo fugiat sed suscipit vitae, in saepe minima eos, consequuntur eligendi cum repellat. Ad corrupti, tenetur sunt distinctio reprehenderit ipsum architecto adipisci placeat, dolor eaque inventore beatae, similique illum quam accusamus. Tempora, dolorem nostrum explicabo hic tenetur at laborum dolore, harum dignissimos impedit ut? Praesentium repellendus amet officia eius dolore.',
   },
   {
+    //most recent
     offerId: 3,
     date: 'Aug 17 2022 12:57:45 GMT+0200 (czas środkowoeuropejski letni)',
     authorName: 'Bob Bobson',
@@ -95,14 +96,15 @@ export const Home = (): JSX.Element => {
   const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<'fetching' | 'fetched'>(
     'fetching',
   )
-  const [sortBy, setSortBy] = useState<SortValues>(SortValues.RECENT_TO_OLDEST)
+  const [sortByValue, setSortByValue] = useState<SortValues>(SortValues.RECENT_TO_OLDEST)
 
   useEffect(() => {
+    console.log('useeffect')
     const fetchOffersOnAppLoad = async () => {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
       setFetchedBackendOffers(offersFromBackend)
-      setDisplayedOffers(offersFromBackend)
+      sortOffers(offersFromBackend, sortByValue)
 
       setBackendOffersFetchStatus('fetched')
     }
@@ -112,37 +114,40 @@ export const Home = (): JSX.Element => {
 
   const searchHandler = (filterSettings: FilterSettings) => {
     const filteredOffers = filterObjectArrayWithObject(fetchedBackendOffers, filterSettings)
-    setDisplayedOffers(filteredOffers)
+    sortOffers(filteredOffers, sortByValue)
   }
 
-  const sortHandler = (e: SelectChangeEvent<SortValues>) => {
-    const selectedSortValue = e.target.value
-    setSortBy(selectedSortValue as SortValues)
-
+  const sortOffers = (objectArrayToSort: EstateProps[], sortValue: SortValues) => {
     let sortedOffers: EstateProps[] = []
 
-    switch (selectedSortValue) {
+    switch (sortValue) {
       case SortValues.PRICE_LOW_TO_HIGH:
-        sortedOffers = displayedOffers.sort((a, b) => a.price - b.price)
+        sortedOffers = objectArrayToSort.sort((a, b) => a.price - b.price)
         break
       case SortValues.PRICE_HIGH_TO_LOW:
-        sortedOffers = displayedOffers.sort((a, b) => b.price - a.price)
+        sortedOffers = objectArrayToSort.sort((a, b) => b.price - a.price)
         break
       case SortValues.SPACE_LOW_TO_HIGH:
-        sortedOffers = displayedOffers.sort((a, b) => a.squareMeters - b.squareMeters)
+        sortedOffers = objectArrayToSort.sort((a, b) => a.squareMeters - b.squareMeters)
         break
       case SortValues.SPACE_HIGH_TO_LOW:
-        sortedOffers = displayedOffers.sort((a, b) => b.squareMeters - a.squareMeters)
+        sortedOffers = objectArrayToSort.sort((a, b) => b.squareMeters - a.squareMeters)
         break
       case SortValues.RECENT_TO_OLDEST:
-        sortedOffers = displayedOffers.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+        sortedOffers = objectArrayToSort.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
         break
       case SortValues.OLDEST_TO_RECENT:
-        sortedOffers = displayedOffers.sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+        sortedOffers = objectArrayToSort.sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
         break
     }
 
     setDisplayedOffers(sortedOffers)
+  }
+
+  const changeSortValueHandler = (e: SelectChangeEvent<SortValues>) => {
+    const selectedSortValue = e.target.value as SortValues
+    setSortByValue(selectedSortValue)
+    sortOffers(displayedOffers, selectedSortValue)
   }
 
   return (
@@ -175,8 +180,8 @@ export const Home = (): JSX.Element => {
           <FormControl size='small'>
             <Select
               id='demo-simple-select'
-              value={sortBy}
-              onChange={(e) => sortHandler(e)}
+              value={sortByValue}
+              onChange={changeSortValueHandler}
               autoWidth
             >
               <MenuItem value={SortValues.RECENT_TO_OLDEST}>Recent to Oldest</MenuItem>
