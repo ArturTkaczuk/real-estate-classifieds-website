@@ -126,6 +126,12 @@ export const Home = (): JSX.Element => {
       case SortValues.PRICE_HIGH_TO_LOW:
         sortedOffers = displayedOffers.sort((a, b) => b.price - a.price)
         break
+      case SortValues.SPACE_LOW_TO_HIGH:
+        sortedOffers = displayedOffers.sort((a, b) => a.squareMeters - b.squareMeters)
+        break
+      case SortValues.SPACE_HIGH_TO_LOW:
+        sortedOffers = displayedOffers.sort((a, b) => b.squareMeters - a.squareMeters)
+        break
 
       default:
         break
