@@ -19,7 +19,6 @@ import {
   Container,
   Divider,
   FormControl,
-  InputLabel,
   MenuItem,
   Paper,
   Select,
@@ -30,7 +29,7 @@ import {
 const offersFromBackend: EstateProps[] = [
   {
     offerId: 1,
-    date: 'Aug 17 2022 09:57:45 GMT+0200 (czas środkowoeuropejski letni)',
+    date: 'Aug 10 2022 09:57:45 GMT+0200 (czas środkowoeuropejski letni)',
     authorName: 'Joe Kowalski',
     contactEmail: 'joekowalski@gmail.com',
     contactPhone: '+48 389 391 832',
@@ -64,7 +63,7 @@ const offersFromBackend: EstateProps[] = [
   },
   {
     offerId: 3,
-    date: 'Aug 17 2022 18:57:45 GMT+0200 (czas środkowoeuropejski letni)',
+    date: 'Aug 17 2022 12:57:45 GMT+0200 (czas środkowoeuropejski letni)',
     authorName: 'Bob Bobson',
     contactEmail: 'bob.bobson2@gmail.com',
     contactPhone: '+48 264 754 119',
@@ -135,8 +134,11 @@ export const Home = (): JSX.Element => {
       case SortValues.SPACE_HIGH_TO_LOW:
         sortedOffers = displayedOffers.sort((a, b) => b.squareMeters - a.squareMeters)
         break
-
-      default:
+      case SortValues.RECENT_TO_OLDEST:
+        sortedOffers = displayedOffers.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+        break
+      case SortValues.OLDEST_TO_RECENT:
+        sortedOffers = displayedOffers.sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
         break
     }
 
@@ -177,12 +179,8 @@ export const Home = (): JSX.Element => {
               onChange={(e) => sortHandler(e)}
               autoWidth
             >
-              <MenuItem disabled value={SortValues.RECENT_TO_OLDEST}>
-                Recent to Oldest
-              </MenuItem>
-              <MenuItem disabled value={SortValues.OLDEST_TO_RECENT}>
-                Oldest to Recent
-              </MenuItem>
+              <MenuItem value={SortValues.RECENT_TO_OLDEST}>Recent to Oldest</MenuItem>
+              <MenuItem value={SortValues.OLDEST_TO_RECENT}>Oldest to Recent</MenuItem>
 
               <Divider sx={{ margin: '0 !important' }} />
 
