@@ -17,6 +17,7 @@ import image33 from '../../assets/images/offer3-3.jpg'
 import {
   Box,
   Container,
+  Divider,
   FormControl,
   InputLabel,
   MenuItem,
@@ -76,13 +77,22 @@ const offersFromBackend = [
   },
 ]
 
+enum SortValues {
+  RECENT_TO_OLDEST = 'recentToOldest',
+  OLDEST_TO_RECENT = 'oldestToRecent',
+  PRICE_LOW_TO_HIGH = 'priceLowToHigh',
+  PRICE_HIGH_TO_LOW = 'priceHighToLow',
+  SPACE_LOW_TO_HIGH = 'spaceLowToHigh',
+  SPACE_HIGH_TO_LOW = 'spaceHighToLow',
+}
+
 export const Home = (): JSX.Element => {
   const [fetchedBackendOffers, setFetchedBackendOffers] = useState<EstateProps[]>([])
   const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>([])
   const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<'fetching' | 'fetched'>(
     'fetching',
   )
-  const [sortBy, setSortBy] = useState<string>('priceLow')
+  const [sortBy, setSortBy] = useState<SortValues>(SortValues.RECENT_TO_OLDEST)
 
   useEffect(() => {
     const fetchOffersOnAppLoad = async () => {
@@ -112,12 +122,17 @@ export const Home = (): JSX.Element => {
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
-          marginBottom: '10px',
+          justifyContent: 'space-between',
+          marginBottom: '20px',
           padding: '20px',
           gap: '20px',
         }}
       >
-        <Typography sx={{ width: '100%', textAlign: 'center' }} variant='h4' component='h2'>
+        <Typography
+          sx={{ width: { xs: '100%', sm: 'fit-content' }, textAlign: 'center' }}
+          variant='h4'
+          component='h2'
+        >
           All offers:
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -128,15 +143,21 @@ export const Home = (): JSX.Element => {
             <Select
               id='demo-simple-select'
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              onChange={(e) => setSortBy(e.target.value as SortValues)}
               autoWidth
             >
-              <MenuItem value={'priceLow'}>Recent to Oldest</MenuItem>
-              <MenuItem value={20}>Oldest to Recent</MenuItem>
-              <MenuItem value={30}>Price: low to high</MenuItem>
-              <MenuItem value={40}>Price: high to low</MenuItem>
-              <MenuItem value={50}>Space: low to high</MenuItem>
-              <MenuItem value={60}>Space: high to low</MenuItem>
+              <MenuItem value={SortValues.RECENT_TO_OLDEST}>Recent to Oldest</MenuItem>
+              <MenuItem value={SortValues.OLDEST_TO_RECENT}>Oldest to Recent</MenuItem>
+
+              <Divider sx={{ margin: '0 !important' }} />
+
+              <MenuItem value={SortValues.PRICE_LOW_TO_HIGH}>Price: low to high</MenuItem>
+              <MenuItem value={SortValues.PRICE_HIGH_TO_LOW}>Price: high to low</MenuItem>
+
+              <Divider sx={{ margin: '0 !important' }} />
+
+              <MenuItem value={SortValues.SPACE_LOW_TO_HIGH}>Space: low to high</MenuItem>
+              <MenuItem value={SortValues.SPACE_HIGH_TO_LOW}>Space: high to low</MenuItem>
             </Select>
           </FormControl>
         </Box>
