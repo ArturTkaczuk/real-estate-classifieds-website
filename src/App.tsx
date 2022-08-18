@@ -11,6 +11,7 @@ import { authInitialState, authReducer } from './reducers/authReducer'
 import { AuthActionType } from './types/authTypes'
 import { Route, Routes } from 'react-router-dom'
 import { OfferDetails } from './pages/OfferDetails/OfferDetails'
+import { ScrollToTop } from './utils/scrollToTop'
 
 function App() {
   const [authState, dispatch] = useReducer(authReducer, authInitialState)
@@ -31,6 +32,7 @@ function App() {
           <BackgroundImage />
           <Header />
 
+          <ScrollToTop />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='offers/:id' element={<OfferDetails />} />
