@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Estates } from '../../components/Estates/Estates'
-import { HeadingPaper } from '../../components/HeadingPaper/HeadingPaper'
 import { SearchFilter } from '../../components/SearchFilter/SearchFilter'
 import { EstateProps, FilterSettings } from '../../types'
 import { filterObjectArrayWithObject } from '../../utils/filterFunction'
@@ -18,6 +17,7 @@ import { Container, SelectChangeEvent } from '@mui/material'
 import { SortValues } from '../../types/sortingTypes'
 import { sortOffers } from '../../utils/sortFunction'
 import { EstatesHeading } from './EstatesHeading/EstatesHeading'
+import { HeadingPaper } from '../../components/styled/HeadingPaper'
 
 const offersFromBackend: EstateProps[] = [
   {
@@ -117,7 +117,7 @@ export const Home = (): JSX.Element => {
 
   return (
     <Container>
-      <HeadingPaper />
+      <HeadingPaper>The best real estate classifieds platform in Poland</HeadingPaper>
 
       <SearchFilter searchHandler={searchHandler} />
 
