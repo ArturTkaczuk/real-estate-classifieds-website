@@ -17,7 +17,7 @@ import image33 from '../../assets/images/offer3-3.jpg'
 import { Container, SelectChangeEvent } from '@mui/material'
 import { SortValues } from '../../types/sortingTypes'
 import { sortOffers } from '../../utils/sortFunction'
-import { OffersHeading } from './OffersHeading/OffersHeading'
+import { EstatesHeading } from './EstatesHeading/EstatesHeading'
 
 const offersFromBackend: EstateProps[] = [
   {
@@ -121,7 +121,7 @@ export const Home = (): JSX.Element => {
 
       <SearchFilter searchHandler={searchHandler} />
 
-      <OffersHeading
+      <EstatesHeading
         sortByValue={sortByValue}
         changeSortByValueHandler={changeSortByValueHandler}
       />

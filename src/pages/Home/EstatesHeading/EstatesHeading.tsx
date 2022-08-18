@@ -10,15 +10,15 @@ import {
 } from '@mui/material'
 import { SortValues } from '../../../types/sortingTypes'
 
-type OffersPaperProps = {
+type EstatesHeadingProps = {
   sortByValue: SortValues
   changeSortByValueHandler: (e: SelectChangeEvent<SortValues>) => void
 }
 
-export const OffersHeading = ({
+export const EstatesHeading = ({
   sortByValue,
   changeSortByValueHandler,
-}: OffersPaperProps): JSX.Element => {
+}: EstatesHeadingProps): JSX.Element => {
   return (
     <Paper
       sx={{
