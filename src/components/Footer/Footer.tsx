@@ -5,9 +5,11 @@ export const Footer = (): JSX.Element => {
   return (
     <Box
       sx={{
+        position: 'absolute',
+        bottom: '0',
+        width: '100vw',
         display: 'flex',
         justifyContent: 'center',
-        marginTop: '120px',
         padding: '15px 0',
         backgroundColor: '#fff',
       }}

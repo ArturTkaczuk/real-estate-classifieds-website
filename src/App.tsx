@@ -11,7 +11,7 @@ import { authInitialState, authReducer } from './reducers/authReducer'
 import { AuthActionType } from './types/authTypes'
 import { Route, Routes } from 'react-router-dom'
 import { OfferDetails } from './pages/OfferDetails/OfferDetails'
-import { ScrollToTop } from './utils/scrollToTop'
+import { ScrollToTopScript } from './utils/scrollToTopScript'
 import { Error404 } from './pages/404/404'
 
 function App() {
@@ -29,17 +29,18 @@ function App() {
       }}
     >
       <ThemeContext.Provider value={themeColor}>
-        <Box>
+        <Box sx={{ minHeight: '100vh', position: 'relative' }}>
           <BackgroundImage />
           <Header />
 
-          <ScrollToTop />
+          <ScrollToTopScript />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='offers/:id' element={<OfferDetails />} />
             <Route path='*' element={<Error404 />} />
           </Routes>
 
+          <Box sx={{ height: '150px' }} />
           <Footer />
         </Box>
       </ThemeContext.Provider>
