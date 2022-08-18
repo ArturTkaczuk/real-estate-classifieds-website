@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles'
-import { Container, Paper, Typography, experimental_sx as sx, Box } from '@mui/material'
+import { Paper, Typography, experimental_sx as sx, Box } from '@mui/material'
 
 const PaperWrapper = styled(Paper)(
   sx({

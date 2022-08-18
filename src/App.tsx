@@ -12,6 +12,7 @@ import { AuthActionType } from './types/authTypes'
 import { Route, Routes } from 'react-router-dom'
 import { OfferDetails } from './pages/OfferDetails/OfferDetails'
 import { ScrollToTop } from './utils/scrollToTop'
+import { Error404 } from './pages/404/404'
 
 function App() {
   const [authState, dispatch] = useReducer(authReducer, authInitialState)
@@ -36,6 +37,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='offers/:id' element={<OfferDetails />} />
+            <Route path='*' element={<Error404 />} />
           </Routes>
 
           <Footer />
