@@ -96,10 +96,10 @@ export const Header = (): JSX.Element => {
         >
           {isLoggedIn ? (
             <div>
-              <MenuItem>
+              <MenuItem onClick={() => navigate('profile')}>
                 <Avatar /> Profile
               </MenuItem>
-              <MenuItem>
+              <MenuItem onClick={() => navigate('my-offers')}>
                 <Avatar /> My offers
               </MenuItem>
               <Divider />
@@ -115,7 +115,7 @@ export const Header = (): JSX.Element => {
               <MenuItem onClick={() => logIn()}>
                 <Avatar /> Login
               </MenuItem>
-              <MenuItem>
+              <MenuItem onClick={() => navigate('sign-up')}>
                 <Avatar /> Sign up
               </MenuItem>
             </div>
