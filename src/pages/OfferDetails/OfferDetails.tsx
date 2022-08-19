@@ -95,7 +95,11 @@ export const OfferDetails = (): JSX.Element => {
             <OfferDetailsFetching />
           ) : (
             <>
-              <Typography component='h2' variant='h4' sx={{ marginBottom: '10px' }}>
+              <Typography
+                component='h2'
+                variant='h4'
+                sx={{ marginBottom: '10px', fontWeight: '500' }}
+              >
                 {offerTitle}
               </Typography>
               <ReactImageGallery
