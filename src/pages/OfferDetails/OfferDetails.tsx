@@ -1,17 +1,19 @@
-import { Container, Paper, Typography } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { Button, Container, Paper, Typography } from '@mui/material'
+import { useContext, useEffect, useState } from 'react'
 import ReactImageGallery from 'react-image-gallery'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { EstateProps } from '../../types'
 import image21 from '../../assets/images/offer2-1.jpg'
 import image22 from '../../assets/images/offer2-2.jpg'
 import image23 from '../../assets/images/offer2-3.jpg'
 import moment from 'moment'
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 import './Gallery.css'
 import { OfferDetailsFetching } from '../../components/UI/Fetching/OfferDetailsFetching'
 import { Tables } from './InputElements/Tables'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const offerFromBackend: EstateProps = {
   offerId: 2,
@@ -76,6 +78,10 @@ export const OfferDetails = (): JSX.Element => {
 
   const urlParams = useParams()
 
+  const navigate = useNavigate()
+
+  const ThemeContextColor = useContext(ThemeContext)
+
   useEffect(() => {
     const fetchOfferOnAppLoad = async () => {
       await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -100,6 +106,19 @@ export const OfferDetails = (): JSX.Element => {
                 variant='h4'
                 sx={{ marginBottom: '10px', fontWeight: '500' }}
               >
+                <Button
+                  variant='contained'
+                  color={ThemeContextColor}
+                  sx={{
+                    padding: '0',
+                    minWidth: '40px',
+                    height: 'fit-content',
+                    margin: '-3px 10px 0 0',
+                  }}
+                  onClick={() => navigate('/')}
+                >
+                  <ArrowLeftIcon sx={{ fontSize: '2.3rem', color: '#fff' }} />
+                </Button>
                 {offerTitle}
               </Typography>
               <ReactImageGallery
