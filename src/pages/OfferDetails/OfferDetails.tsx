@@ -6,6 +6,7 @@ import { EstateProps } from '../../types'
 import image21 from '../../assets/images/offer2-1.jpg'
 import image22 from '../../assets/images/offer2-2.jpg'
 import image23 from '../../assets/images/offer2-3.jpg'
+import moment from 'moment'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 import './Gallery.css'
@@ -52,6 +53,7 @@ export const OfferDetails = (): JSX.Element => {
   })
 
   const {
+    date,
     authorName,
     contactEmail,
     contactPhone,
@@ -104,6 +106,9 @@ export const OfferDetails = (): JSX.Element => {
 
               <Typography component='h2' variant='h4' sx={{ margin: '20px 0' }}>
                 Offer Details
+              </Typography>
+              <Typography component='p' variant='body1' sx={{ margin: '20px 0' }}>
+                Offer added: {moment(date).fromNow()}
               </Typography>
               <Tables
                 price={price}
