@@ -73,7 +73,7 @@ const offersFromBackend: EstateProps[] = [
   },
 ]
 
-export const Home = (): JSX.Element => {
+const Home = (): JSX.Element => {
   const [fetchedBackendOffers, setFetchedBackendOffers] = useState<EstateProps[]>([])
   const [displayedOffers, setDisplayedOffers] = useState<EstateProps[]>([])
   const [backendOffersFetchStatus, setBackendOffersFetchStatus] = useState<'fetching' | 'fetched'>(
@@ -130,3 +130,5 @@ export const Home = (): JSX.Element => {
     </Container>
   )
 }
+
+export default Home

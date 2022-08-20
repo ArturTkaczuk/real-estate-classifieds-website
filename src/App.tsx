@@ -12,8 +12,8 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { ScrollToTopScript } from './utils/scrollToTopScript'
 
 const OfferDetails = lazy(() => import('./pages/OfferDetails/OfferDetails'))
+const Home = lazy(() => import('./pages/Home/Home'))
 
-import { Home } from './pages/Home/Home'
 import { Error404 } from './pages/404/404'
 import { SignUp } from './pages/SignUp/SignUp'
 import { Profile } from './pages/Profile/Profile'
