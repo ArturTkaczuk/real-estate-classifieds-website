@@ -1,17 +1,19 @@
 import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
-import { useReducer } from 'react'
+import { Suspense, useReducer, lazy } from 'react'
 import { MUIColorType } from './types'
 import { ThemeContext } from './context/ThemeContext'
 import { BackgroundImage } from './components/BackgroundImage/BackgroundImage'
 import { Box } from '@mui/material'
-import { Home } from './pages/Home/Home'
 import { AuthContext } from './context/AuthContext'
 import { authInitialState, authReducer } from './reducers/authReducer'
 import { AuthActionType } from './types/authTypes'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { OfferDetails } from './pages/OfferDetails/OfferDetails'
 import { ScrollToTopScript } from './utils/scrollToTopScript'
+
+const OfferDetails = lazy(() => import('./pages/OfferDetails/OfferDetails'))
+
+import { Home } from './pages/Home/Home'
 import { Error404 } from './pages/404/404'
 import { SignUp } from './pages/SignUp/SignUp'
 import { Profile } from './pages/Profile/Profile'
@@ -38,15 +40,17 @@ function App() {
           <Header />
 
           <ScrollToTopScript />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='offers/:id' element={<OfferDetails />} />
-            <Route path='login' element={<Login />} />
-            <Route path='sign-up' element={<SignUp />} />
-            <Route path='profile' element={isLoggedIn ? <Profile /> : <Navigate to='/login' />} />
-            <Route path='my-offers' element={<MyOffers />} />
-            <Route path='*' element={<Error404 />} />
-          </Routes>
+          <Suspense fallback={<p>Loading</p>}>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='offers/:id' element={<OfferDetails />} />
+              <Route path='login' element={<Login />} />
+              <Route path='sign-up' element={<SignUp />} />
+              <Route path='profile' element={isLoggedIn ? <Profile /> : <Navigate to='/login' />} />
+              <Route path='my-offers' element={<MyOffers />} />
+              <Route path='*' element={<Error404 />} />
+            </Routes>
+          </Suspense>
 
           <Box sx={{ height: '150px' }} />
           <Footer />
