@@ -9,13 +9,14 @@ import { Home } from './pages/Home/Home'
 import { AuthContext } from './context/AuthContext'
 import { authInitialState, authReducer } from './reducers/authReducer'
 import { AuthActionType } from './types/authTypes'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { OfferDetails } from './pages/OfferDetails/OfferDetails'
 import { ScrollToTopScript } from './utils/scrollToTopScript'
 import { Error404 } from './pages/404/404'
 import { SignUp } from './pages/SignUp/SignUp'
 import { Profile } from './pages/Profile/Profile'
 import { MyOffers } from './pages/MyOffers/MyOffers'
+import { Login } from './pages/Login/Login'
 
 function App() {
   const [authState, dispatch] = useReducer(authReducer, authInitialState)
@@ -40,8 +41,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='offers/:id' element={<OfferDetails />} />
+            <Route path='login' element={<Login />} />
             <Route path='sign-up' element={<SignUp />} />
-            <Route path='profile' element={<Profile />} />
+            <Route path='profile' element={isLoggedIn ? <Profile /> : <Navigate to='/login' />} />
             <Route path='my-offers' element={<MyOffers />} />
             <Route path='*' element={<Error404 />} />
           </Routes>
