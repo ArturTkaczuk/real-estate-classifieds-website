@@ -1,7 +1,9 @@
 import { Box, Button, Container, Paper, TextField } from '@mui/material'
 import { Field, Form, Formik } from 'formik'
+import { useContext } from 'react'
 import { object, ref, string } from 'yup'
 import { HeadingPaper } from '../../components/styled/HeadingPaper'
+import { ThemeContext } from '../../context/ThemeContext'
 
 type SignUpValuesType = {
   email: string
@@ -11,6 +13,8 @@ type SignUpValuesType = {
 }
 
 export const SignUp = (): JSX.Element => {
+  const ThemeContextColor = useContext(ThemeContext)
+
   const handleSubmit = ({ email, userName, password }: SignUpValuesType) => {
     console.log({ email, userName, password })
   }
@@ -52,7 +56,7 @@ export const SignUp = (): JSX.Element => {
                   type='email'
                   as={TextField}
                   variant='outlined'
-                  color={'success'}
+                  color={ThemeContextColor}
                   label='Email'
                   error={!!errors.email && !!touched.email}
                   helperText={!!touched.email && errors.email}
@@ -63,7 +67,7 @@ export const SignUp = (): JSX.Element => {
                   type='userName'
                   as={TextField}
                   variant='outlined'
-                  color={'success'}
+                  color={ThemeContextColor}
                   label='Username'
                   error={!!errors.userName && !!touched.userName}
                   helperText={!!touched.userName && errors.userName}
@@ -74,7 +78,7 @@ export const SignUp = (): JSX.Element => {
                   type='password'
                   as={TextField}
                   variant='outlined'
-                  color={'success'}
+                  color={ThemeContextColor}
                   label='Password'
                   error={!!errors.password && !!touched.password}
                   helperText={!!touched.password && errors.password}
@@ -85,7 +89,7 @@ export const SignUp = (): JSX.Element => {
                   type='password'
                   as={TextField}
                   variant='outlined'
-                  color={'success'}
+                  color={ThemeContextColor}
                   label='Repeat password'
                   error={!!errors.repeatPassword && !!touched.repeatPassword}
                   helperText={!!touched.repeatPassword && errors.repeatPassword}
@@ -96,7 +100,7 @@ export const SignUp = (): JSX.Element => {
                   disabled={!dirty || !isValid}
                   fullWidth
                   variant='contained'
-                  color={'success'}
+                  color={ThemeContextColor}
                   sx={{ height: '50px' }}
                 >
                   Sign up
