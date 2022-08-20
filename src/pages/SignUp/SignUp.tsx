@@ -12,7 +12,7 @@ type SignUpValuesType = {
   repeatPassword: string
 }
 
-export const SignUp = (): JSX.Element => {
+const SignUp = (): JSX.Element => {
   const ThemeContextColor = useContext(ThemeContext)
 
   const handleSubmit = ({ email, userName, password }: SignUpValuesType) => {
@@ -113,3 +113,5 @@ export const SignUp = (): JSX.Element => {
     </Container>
   )
 }
+
+export default SignUp
