@@ -15,10 +15,9 @@ const OfferDetails = lazy(() => import('./pages/OfferDetails/OfferDetails'))
 const Home = lazy(() => import('./pages/Home/Home'))
 const Error404 = lazy(() => import('./pages/404/404'))
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'))
-
-import { Profile } from './pages/Profile/Profile'
-import { MyOffers } from './pages/MyOffers/MyOffers'
-import { Login } from './pages/Login/Login'
+const Profile = lazy(() => import('./pages/Profile/Profile'))
+const MyOffers = lazy(() => import('./pages/MyOffers/MyOffers'))
+const Login = lazy(() => import('./pages/Login/Login'))
 
 function App() {
   const [authState, dispatch] = useReducer(authReducer, authInitialState)

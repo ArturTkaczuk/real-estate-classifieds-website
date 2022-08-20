@@ -1,6 +1,6 @@
 import { Container, Typography } from '@mui/material'
 
-export const MyOffers = (): JSX.Element => {
+const MyOffers = (): JSX.Element => {
   return (
     <Container>
       <Typography variant='h2' component='h2'>
@@ -9,3 +9,5 @@ export const MyOffers = (): JSX.Element => {
     </Container>
   )
 }
+
+export default MyOffers
