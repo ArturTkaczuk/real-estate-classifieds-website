@@ -13,8 +13,8 @@ import { ScrollToTopScript } from './utils/scrollToTopScript'
 
 const OfferDetails = lazy(() => import('./pages/OfferDetails/OfferDetails'))
 const Home = lazy(() => import('./pages/Home/Home'))
+const Error404 = lazy(() => import('./pages/404/404'))
 
-import { Error404 } from './pages/404/404'
 import { SignUp } from './pages/SignUp/SignUp'
 import { Profile } from './pages/Profile/Profile'
 import { MyOffers } from './pages/MyOffers/MyOffers'

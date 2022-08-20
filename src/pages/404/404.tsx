@@ -1,7 +1,7 @@
 import { Container, Paper, Typography } from '@mui/material'
 import { HeadingPaper } from '../../components/styled/HeadingPaper'
 
-export const Error404 = (): JSX.Element => {
+const Error404 = (): JSX.Element => {
   return (
     <Container>
       <HeadingPaper>Error 404</HeadingPaper>
@@ -14,3 +14,5 @@ export const Error404 = (): JSX.Element => {
     </Container>
   )
 }
+
+export default Error404
